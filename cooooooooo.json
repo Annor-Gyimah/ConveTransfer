@@ -1,0 +1,229 @@
+{
+ "version": "auto-py-to-exe-configuration_v1",
+ "pyinstallerOptions": [
+  {
+   "optionDest": "noconfirm",
+   "value": true
+  },
+  {
+   "optionDest": "filenames",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/ConveTransfer.py"
+  },
+  {
+   "optionDest": "onefile",
+   "value": true
+  },
+  {
+   "optionDest": "console",
+   "value": false
+  },
+  {
+   "optionDest": "icon_file",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/images/unt.ico"
+  },
+  {
+   "optionDest": "ascii",
+   "value": false
+  },
+  {
+   "optionDest": "clean_build",
+   "value": false
+  },
+  {
+   "optionDest": "strip",
+   "value": false
+  },
+  {
+   "optionDest": "noupx",
+   "value": false
+  },
+  {
+   "optionDest": "disable_windowed_traceback",
+   "value": false
+  },
+  {
+   "optionDest": "embed_manifest",
+   "value": true
+  },
+  {
+   "optionDest": "uac_admin",
+   "value": false
+  },
+  {
+   "optionDest": "uac_uiaccess",
+   "value": false
+  },
+  {
+   "optionDest": "win_private_assemblies",
+   "value": false
+  },
+  {
+   "optionDest": "win_no_prefer_redirects",
+   "value": false
+  },
+  {
+   "optionDest": "bootloader_ignore_signals",
+   "value": false
+  },
+  {
+   "optionDest": "argv_emulation",
+   "value": false
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/about.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/connection.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/dragndrop.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/get_ip.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/how_to.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/httpserver.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/language_config.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/language_config.txt;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/metadata.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/packages.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/phonelink.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/progresswin.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/receiveloc.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/resourcepath.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/send_receive_image.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/table_options.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/theme_display.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/translations.json;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/updatemanager.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/wifi_name.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/youtube3.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/images;images/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/site-packages/tkinterdnd2;tkinterdnd2/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/site-packages/tkdnd;tkdnd/"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/site-packages"
+  },
+  {
+   "optionDest": "hiddenimports",
+   "value": "types"
+  },
+  {
+   "optionDest": "collect_data",
+   "value": "types"
+  },
+  {
+   "optionDest": "collect_all",
+   "value": "types"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/types.py;."
+  },
+  {
+   "optionDest": "hookspath",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/hooks"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib"
+  },
+  {
+   "optionDest": "runtime_hooks",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer2/hooks/hook-encodings.py"
+  },
+  {
+   "optionDest": "binaries",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/python.exe;."
+  },
+  {
+   "optionDest": "pathex",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310"
+  },
+  {
+   "optionDest": "hiddenimports",
+   "value": "encodings"
+  },
+  {
+   "optionDest": "collect_data",
+   "value": "encodings"
+  },
+  {
+   "optionDest": "collect_all",
+   "value": "encodings"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/encodings"
+  }
+ ],
+ "nonPyinstallerOptions": {
+  "increaseRecursionLimit": true,
+  "manualArguments": ""
+ }
+}

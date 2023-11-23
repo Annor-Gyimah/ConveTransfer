@@ -1,0 +1,157 @@
+{
+ "version": "auto-py-to-exe-configuration_v1",
+ "pyinstallerOptions": [
+  {
+   "optionDest": "noconfirm",
+   "value": true
+  },
+  {
+   "optionDest": "filenames",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/ConveTransfer.py"
+  },
+  {
+   "optionDest": "onefile",
+   "value": true
+  },
+  {
+   "optionDest": "console",
+   "value": false
+  },
+  {
+   "optionDest": "icon_file",
+   "value": "C:/Users/DELL/Desktop/socketra/unt1.ico"
+  },
+  {
+   "optionDest": "ascii",
+   "value": false
+  },
+  {
+   "optionDest": "clean_build",
+   "value": false
+  },
+  {
+   "optionDest": "strip",
+   "value": false
+  },
+  {
+   "optionDest": "noupx",
+   "value": false
+  },
+  {
+   "optionDest": "disable_windowed_traceback",
+   "value": false
+  },
+  {
+   "optionDest": "embed_manifest",
+   "value": false
+  },
+  {
+   "optionDest": "uac_admin",
+   "value": false
+  },
+  {
+   "optionDest": "uac_uiaccess",
+   "value": false
+  },
+  {
+   "optionDest": "win_private_assemblies",
+   "value": false
+  },
+  {
+   "optionDest": "win_no_prefer_redirects",
+   "value": false
+  },
+  {
+   "optionDest": "bootloader_ignore_signals",
+   "value": false
+  },
+  {
+   "optionDest": "argv_emulation",
+   "value": false
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/about.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/connection.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/get_ip.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/how_to.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/language_config.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/metadata.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/packages.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/progresswin.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/receiveloc.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/resourcepath.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/table_options.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/theme_display.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/translations.json;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/updatemanager.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/images;images/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/config.json;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/get_drive.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/youtube3.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/socketra/ConveTransfer2/wifi_name.py;."
+  },
+  {
+   "optionDest": "pathex",
+   "value": "C:/Users/DELL/Desktop/socketra/Lib/site-packages"
+  }
+ ],
+ "nonPyinstallerOptions": {
+  "increaseRecursionLimit": true,
+  "manualArguments": ""
+ }
+}

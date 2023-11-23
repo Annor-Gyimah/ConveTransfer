@@ -1,0 +1,953 @@
+{
+ "version": "auto-py-to-exe-configuration_v1",
+ "pyinstallerOptions": [
+  {
+   "optionDest": "noconfirm",
+   "value": true
+  },
+  {
+   "optionDest": "filenames",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/ConveTransfer.py"
+  },
+  {
+   "optionDest": "onefile",
+   "value": true
+  },
+  {
+   "optionDest": "console",
+   "value": false
+  },
+  {
+   "optionDest": "icon_file",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/images/unt.ico"
+  },
+  {
+   "optionDest": "clean_build",
+   "value": false
+  },
+  {
+   "optionDest": "strip",
+   "value": false
+  },
+  {
+   "optionDest": "noupx",
+   "value": false
+  },
+  {
+   "optionDest": "disable_windowed_traceback",
+   "value": false
+  },
+  {
+   "optionDest": "uac_admin",
+   "value": false
+  },
+  {
+   "optionDest": "uac_uiaccess",
+   "value": false
+  },
+  {
+   "optionDest": "argv_emulation",
+   "value": false
+  },
+  {
+   "optionDest": "bootloader_ignore_signals",
+   "value": false
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/about.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/config.json;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/connection.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/dragndrop.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/get_ip.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/how_to.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/httpserver.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/language_config.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/metadata.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/packages.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/phonelink.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/progresswin.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/receiveloc.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/resourcepath.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/send_receive_image.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/table_options.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/theme_display.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/translations.json;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/updatemanager.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/wifi_name.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/youtube3.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/images;images/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/site-packages/tkinterdnd2;tkinterdnd2/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/http;http/"
+  },
+  {
+   "optionDest": "hiddenimports",
+   "value": "qrcode"
+  },
+  {
+   "optionDest": "hiddenimports",
+   "value": "tkinterdnd2"
+  },
+  {
+   "optionDest": "binaries",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/python.exe;."
+  },
+  {
+   "optionDest": "collect_data",
+   "value": "tkinterdnd2"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/site-packages"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/encodings;encodings/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/asyncio;asyncio/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/collections;collections/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/concurrent;concurrent/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/ctypes;ctypes/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/curses;curses/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/distutils;distutils/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/email;email/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/html;html/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/idlelib;idlelib/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/json;json/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/lib2to3;lib2to3/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/logging;logging/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/msilib;msilib/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/multiprocessing;multiprocessing/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/pydoc_data;pydoc_data/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/sqlite3;sqlite3/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/turtledemo;turtledemo/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/unittest;unittest/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/wsgiref;wsgiref/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/wsgiref;wsgiref/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/zoneinfo;zoneinfo/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/__future__.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/__phello__.foo.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/_aix_support.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/_bootsubprocess.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/_collections_abc.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/_compat_pickle.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/_compression.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/_markupbase.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/_osx_support.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/_py_abc.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/_pydecimal.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/_pyio.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/_sitebuiltins.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/_strptime.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/_threading_local.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/_weakrefset.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/abc.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/aifc.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/antigravity.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/argparse.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/ast.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/asynchat.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/asyncore.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/base64.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/bdb.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/binhex.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/bisect.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/bz2.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/calendar.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/cgi.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/cgitb.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/chunk.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/cmd.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/code.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/codecs.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/codeop.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/colorsys.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/compileall.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/configparser.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/contextlib.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/contextvars.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/copy.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/copyreg.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/cProfile.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/crypt.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/csv.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/dataclasses.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/datetime.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/decimal.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/difflib.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/dis.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/doctest.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/enum.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/filecmp.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/fileinput.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/fnmatch.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/fractions.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/ftplib.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/functools.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/genericpath.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/getopt.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/getpass.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/gettext.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/glob.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/graphlib.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/gzip.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/hashlib.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/heapq.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/hmac.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/imaplib.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/imghdr.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/imp.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/inspect.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/io.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/ipaddress.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/keyword.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/linecache.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/locale.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/lzma.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/mailbox.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/mailcap.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/mimetypes.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/modulefinder.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/netrc.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/nntplib.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/ntpath.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/nturl2path.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/numbers.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/opcode.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/operator.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/optparse.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/os.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/pathlib.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/pdb.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/pickle.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/pickletools.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/pipes.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/pkgutil.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/platform.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/plistlib.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/poplib.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/posixpath.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/pprint.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/profile.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/pstats.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/pty.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/py_compile.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/pyclbr.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/pydoc.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/queue.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/quopri.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/random.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/re.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/reprlib.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/rlcompleter.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/runpy.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/sched.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/secrets.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/selectors.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/shelve.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/shlex.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/shutil.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/signal.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/site.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/smtpd.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/smtplib.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/sndhdr.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/socket.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/socketserver.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/sre_compile.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/sre_constants.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/sre_parse.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/ssl.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/stat.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/statistics.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/string.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/stringprep.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/struct.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/subprocess.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/sunau.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/symtable.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/sysconfig.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/tabnanny.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/tarfile.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/telnetlib.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/tempfile.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/textwrap.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/this.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/threading.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/timeit.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/token.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/tokenize.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/trace.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/traceback.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/tracemalloc.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/tty.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/turtle.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/types.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/typing.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/uu.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/uuid.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/warnings.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/wave.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/weakref.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/webbrowser.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/xdrlib.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/zipapp.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/zipfile.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/zipimport.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/urllib;urllib/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/tkinter;tkinter/"
+  }
+ ],
+ "nonPyinstallerOptions": {
+  "increaseRecursionLimit": true,
+  "manualArguments": ""
+ }
+}

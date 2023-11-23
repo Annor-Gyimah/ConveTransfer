@@ -1,0 +1,429 @@
+# import http.server
+# import socketserver
+# import shutil
+# from jinja2 import Environment, FileSystemLoader
+
+# from PIL import Image, ImageTk
+# import tkinter as tk
+# import threading
+# import os
+# import cgi
+# import sys
+# def resource_path(relative_path):
+#     """ Get absolute path to resource, works for dev and for PyInstaller """
+#     base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+#     return os.path.join(base_path, relative_path)
+
+# def resource_path2(relative_path):
+#     try:
+#         base_path = sys._MEIPASS
+#     except Exception:
+#         base_path = os.path.abspath(".")
+#     return os.path.join(base_path, relative_path)
+
+# #sys.path.append("C:/Users/DELL/Desktop/socketra/Lib/site-packages/")
+# try:
+#     sys.path.append("C:/Users/DELL/Desktop/socketra/Lib/site-packages/qrcode")
+#     import qrcode
+# except ModuleNotFoundError:
+#     import qrcode
+# # Set the port for the HTTP server
+# PORT = 8000
+
+# # Create a custom request handler to serve files and handle custom actions
+# class CustomHandler(http.server.SimpleHTTPRequestHandler):
+#     def do_GET(self):
+#         if self.path == "/":
+#             self.send_response(200)
+#             self.send_header("Content-type", "text/html")
+#             self.end_headers()
+#             pat = resource_path2(relative_path='index.html')
+#             with open(f'{pat}', "rb") as file:
+#                 self.wfile.write(file.read())
+
+#         elif self.path == "/style.css":
+#             self.send_response(200)
+#             self.send_header("Content-type", "text/css")
+#             self.end_headers()
+#             pat2 = resource_path2(relative_path="style.css")
+#             with open(f'{pat2}', "rb") as file:
+#                 self.wfile.write(file.read())
+#         elif self.path.startswith("/download/"):
+#             file_path = self.path.lstrip("/download/")
+#             if os.path.isfile(file_path):
+#                 self.send_response(200)
+#                 self.send_header("Content-Disposition", f'attachment; filename="{os.path.basename(file_path)}"')
+#                 self.end_headers()
+#                 with open(file_path, "rb") as file:
+#                     self.wfile.write(file.read())
+#             else:
+#                 self.send_error(404, "File not found")
+#         elif self.path == "/list":
+#             self.send_response(200)
+#             self.send_header("Content-type", "text/html")
+#             self.end_headers()
+#             # List files in the current directory
+#             files = os.listdir(os.getcwd())
+#             file_list = "<ul>"
+#             for file in files:
+#                 file_list += f'<li><a href="{file}">{file}</a></li>'
+#             file_list += "</ul>"
+#             self.wfile.write(file_list.encode())
+        
+#         elif self.path == "/go_back":
+#             # Handle "Go Back" functionality
+#             current_path = os.path.dirname(self.path)
+#             if current_path == "":
+#                 current_path = "/"
+#             self.send_response(302)
+#             self.send_header("Location", current_path)
+#             self.end_headers()
+#         else:
+#             super().do_GET()
+#     def do_POST(self):
+#         if self.path == "/upload":
+#             content_type, _ = cgi.parse_header(self.headers["content-type"])
+#             if content_type == "multipart/form-data":
+#                 form_data = cgi.FieldStorage(
+#                     self.rfile, headers=self.headers, environ={"REQUEST_METHOD": "POST"}
+#                 )
+#                 if "file" in form_data:
+#                     file_item = form_data["file"]
+#                     if file_item.file:
+#                         file_path = os.path.join(os.getcwd(), file_item.filename)
+#                         with open(file_path, "wb") as new_file:
+#                             shutil.copyfileobj(file_item.file, new_file)
+#                         self.send_response(200)
+#                         self.send_header("Content-type", "text/html")
+#                         self.end_headers()
+#                         self.wfile.write(b"File uploaded successfully")
+#                         return
+#             self.send_error(400, "Bad Request")    
+
+# # Create a Tkinter window
+# root = tk.Tk()
+# root.title("QR Code File Transfer App")
+
+# # Function to generate and display the QR code
+# def generate_qr_code():
+#     # Generate a QR code with the server URL
+#     server_url = f"http://192.168.204.247:{PORT}/"  # Replace with your server's IP address
+#     qr = qrcode.QRCode(
+#         version=1,
+#         error_correction=qrcode.constants.ERROR_CORRECT_L,
+#         box_size=10,
+#         border=4,
+#     )
+#     qr.add_data(server_url)
+#     qr.make(fit=True)
+#     img = qr.make_image(fill_color="black", back_color="white")
+
+#     # Convert the PIL Image to a PhotoImage
+#     img = ImageTk.PhotoImage(img)
+
+#     # Create a label to display the QR code
+#     label.config(image=img)
+#     label.image = img  # Update reference to avoid garbage collection
+
+# # Create a label to display the QR code
+# label = tk.Label(root)
+# label.pack(padx=20, pady=20)
+
+# # Generate and display the initial QR code
+# generate_qr_code()
+
+# class StoppableHTTPServer(socketserver.TCPServer):
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         self.event = threading.Event()
+
+#     def serve_forever(self):
+#         while not self.event.is_set():
+#             self.handle_request()
+
+# # Function to run the HTTP server
+# def run_server():
+#     with socketserver.TCPServer(("", PORT), CustomHandler) as httpd:
+#         print(f"Serving at port {PORT}")
+#         try:
+#             httpd.serve_forever()
+#         except KeyboardInterrupt:
+#             httpd.shutdown()
+#             httpd.server_close()
+
+
+
+# # Create a thread for the HTTP server
+# server_thread = threading.Thread(target=run_server)
+
+# # Start the server thread
+# server_thread.start()
+
+
+
+
+# # Function to handle the application exit
+# def on_closing():
+#     try:
+#         server_thread._stop()  # Stop the server thread
+#     except:
+#         pass
+#     finally:
+#         server_thread.join(timeout=5.6)
+#         if server_thread.is_alive():
+#             print('Thread is still alive')
+#         else:
+#             print('Thread is dead')
+#     root.destroy()
+
+# # Configure the Tkinter app to call the on_closing function when closed
+# root.protocol("WM_DELETE_WINDOW", on_closing)
+
+
+# # Run the Tkinter main loop
+# root.mainloop()
+from http.server import SimpleHTTPRequestHandler
+import socketserver
+import urllib
+import os
+import html
+import time
+import shutil
+import cgi
+
+import tkinter as tk
+import threading
+import qrcode
+from PIL import Image, ImageTk
+# Define the custom handler to include directory listing
+def sizeof_fmt(num, suffix='B'):
+    for unit in ['','Ki','Mi','Gi','Ti','Pi','Ei','Zi']:
+        if abs(num) < 1024.0:
+            return "%3.1f %s%s" % (num, unit, suffix)
+        num /= 1024.0
+    return "%.1f %s%s" % (num, 'Yi', suffix)
+
+class MyHandler(SimpleHTTPRequestHandler):
+    def list_directory(self, path):
+        try:
+            list = os.listdir(path)
+        except OSError:
+            self.send_error(404, "No permission to list directory")
+            return None
+        list.sort(key=lambda a: a.lower())
+        r = []
+        try:
+            displaypath = urllib.parse.unquote(self.path, errors='surrogatepass')
+        except UnicodeDecodeError:
+            displaypath = urllib.parse.unquote(path)
+        displaypath = html.escape(displaypath)
+        r.append('<!DOCTYPE html>\n<html>\n<head>')
+        r.append('<meta charset="utf-8">')
+        r.append('<title>Directory listing for %s</title>' % displaypath)
+        r.append('<style>')
+        r.append('body {font-family: "Helvetica", sans-serif; margin: 2em; padding: 2em; background-color: #f5f5f5;}')
+        r.append('h1 {color: #333;}')
+        r.append('table {border-collapse: collapse; width: 100%;}')
+        r.append('th, td {padding: 8px 12px; border: 1px solid #ddd; text-align: left; font-size: 14px;}')
+        r.append('th {background-color: #4CAF50; color: white;}')
+        r.append('tr:nth-child(even) {background-color: #f2f2f2;}')
+        r.append('.upload-form {margin-top: 20px;}')
+        r.append('.upload-input {margin-right: 10px;}')
+        r.append('.upload-button {padding: 8px 12px; background-color: #4CAF50; color: white; border: none; cursor: pointer; margin-left: 0px;}')
+        r.append('.destination {margin-top: 20px; margin-bottom: 30px;}')
+        r.append('.radio-group {display: flex;}')
+        r.append('.radio-group label {margin-right: 20px;}')
+        r.append('</style>')
+        r.append('</head>\n<body>')
+        r.append('<h1>Directory listing for %s</h1>' % displaypath)
+        
+        # Add a form for navigating to the parent directory
+        r.append('<form method="get" action="/">')
+        r.append('<button type="submit">Parent Directory</button>')
+        r.append('</form>')
+
+        # Add a styled form for uploading files
+        r.append('<form class="upload-form" enctype="multipart/form-data" method="post" action="/">')
+        
+        # File input div
+        r.append('<div>')
+        r.append('<input class="upload-input" type="file" name="file">')
+        r.append('<button class="upload-button" type="submit">Upload File</button>')
+        r.append('</div>')
+
+        # Destination selection div
+        r.append('<div class="destination">')
+        r.append('<label>Select Destination:</label>')
+        r.append('<div class="radio-group">')
+        r.append('<input type="radio" name="destination" value="desktop" checked> Desktop')
+        r.append('<input type="radio" name="destination" value="documents"> Documents')
+        r.append('<input type="radio" name="destination" value="music"> Music')
+        r.append('<input type="radio" name="destination" value="videos"> Videos')
+        r.append('<input type="radio" name="destination" value="pictures"> Pictures')
+        r.append('</div>')
+        r.append('</div>')
+
+        r.append('</form>')
+
+        # Add a table with headers for filename, date, and filesize
+        r.append('<table>')
+        r.append('<tr>')
+        r.append('<th>Filename</th>')
+        r.append('<th>Date</th>')
+        r.append('<th>Filesize</th>')
+        r.append('</tr>')
+
+        for name in list:
+            fullname = os.path.join(path, name)
+            displayname = linkname = name
+            # Append / for directories or @ for symbolic links
+            if os.path.isdir(fullname):
+                displayname = name + '/'
+                linkname = name + '/'
+            if os.path.islink(fullname):
+                displayname = name + '@'
+                # Note: a link to a directory displays with @ and links with /
+            r.append('<tr>')
+            r.append('<td><a href="%s">%s</a></td>' % (
+                urllib.parse.quote(linkname),
+                html.escape(displayname),
+            ))
+            r.append('<td>%s</td>' % time.ctime(os.path.getmtime(fullname)))
+            r.append('<td>%s</td>' % sizeof_fmt(os.path.getsize(fullname)))
+            r.append('</tr>')
+
+        r.append('</table>')
+        r.append('</body>\n</html>')
+        encoded = '\n'.join(r).encode('utf-8')
+        self.send_response(200)
+        self.send_header("Content-type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(encoded)))
+        self.end_headers()
+        self.wfile.write(encoded)
+
+    def do_POST(self):
+        # Handle file uploads
+        if self.path == '/':
+            content_type, _ = cgi.parse_header(self.headers.get('Content-Type'))
+            if content_type == 'multipart/form-data':
+                form_data = cgi.FieldStorage(
+                    fp=self.rfile,
+                    headers=self.headers,
+                    environ={'REQUEST_METHOD': 'POST', 'CONTENT_TYPE': self.headers['Content-Type']}
+                )
+                uploaded_file = form_data['file']
+                if uploaded_file.file:
+                    # Specify the directory to save uploaded files
+                    destination = form_data.getvalue("destination")
+                    upload_dir = self.get_destination_path(destination)
+                    os.makedirs(upload_dir, exist_ok=True)
+                    save_path = os.path.join(upload_dir, uploaded_file.filename)
+
+                    # Save the file
+                    with open(save_path, 'wb') as f:
+                        shutil.copyfileobj(uploaded_file.file, f)
+        
+        # Redirect back to the directory listing after the upload
+        self.send_response(303)
+        self.send_header('Location', '/')
+        self.end_headers()
+
+    def get_destination_path(self, destination):
+        user_home = os.path.expanduser("~")
+        destination_paths = {
+            "desktop": os.path.join(user_home, "Desktop"),
+            "documents": os.path.join(user_home, "Documents"),
+            "music": os.path.join(user_home, "Music"),
+            "videos": os.path.join(user_home, "Videos"),
+            "pictures": os.path.join(user_home, "Pictures"),
+        }
+        return destination_paths.get(destination, user_home)
+
+# Specify the port to use
+PORT = 8000
+
+# Set the initial path to "users"
+# os.chdir("pathss")
+os.chdir(os.path.expanduser(f'~\\'))
+
+# # Create the server
+# Handler = MyHandler
+# with socketserver.TCPServer(("", PORT), Handler) as httpd:
+#     print("Server started at http://192.168.204.247:{}/".format(PORT))
+#     httpd.serve_forever()
+
+
+# Create a Tkinter window
+root = tk.Tk()
+root.title("QR Code File Transfer App")
+
+# Function to generate and display the QR code
+def generate_qr_code():
+    # Generate a QR code with the server URL
+    server_url = f"http://192.168.204.247:{PORT}/"  # Replace with your server's IP address
+    qr = qrcode.QRCode(
+        version=1,
+        error_correction=qrcode.constants.ERROR_CORRECT_L,
+        box_size=10,
+        border=4,
+    )
+    qr.add_data(server_url)
+    qr.make(fit=True)
+    img = qr.make_image(fill_color="black", back_color="white")
+
+    # Convert the PIL Image to a PhotoImage
+    img = ImageTk.PhotoImage(img)
+
+    # Create a label to display the QR code
+    label.config(image=img)
+    label.image = img  # Update reference to avoid garbage collection
+
+# Create a label to display the QR code
+label = tk.Label(root)
+label.pack(padx=20, pady=20)
+
+# Generate and display the initial QR code
+generate_qr_code()
+
+
+# Function to run the HTTP server
+def run_server():
+    with socketserver.TCPServer(("", PORT), MyHandler) as httpd:
+        print(f"Serving at port {PORT}")
+        try:
+            httpd.serve_forever()
+        except KeyboardInterrupt:
+            httpd.shutdown()
+            httpd.server_close()
+
+
+
+# Create a thread for the HTTP server
+server_thread = threading.Thread(target=run_server)
+
+# Start the server thread
+server_thread.start()
+
+
+
+
+# Function to handle the application exit
+def on_closing():
+    try:
+        server_thread._stop()  # Stop the server thread
+    except:
+        pass
+    finally:
+        server_thread.join(timeout=5.6)
+        if server_thread.is_alive():
+            print('Thread is still alive')
+        else:
+            print('Thread is dead')
+    root.destroy()
+
+# Configure the Tkinter app to call the on_closing function when closed
+root.protocol("WM_DELETE_WINDOW", on_closing)
+
+
+# Run the Tkinter main loop
+root.mainloop()
