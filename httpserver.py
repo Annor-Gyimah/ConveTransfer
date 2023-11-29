@@ -14,6 +14,7 @@ import codecs
 import io
 
 
+
 def sizeof_fmt(num, suffix='B'):
     for unit in ['','Ki','Mi','Gi','Ti','Pi','Ei','Zi']:
         if abs(num) < 1024.0:
@@ -171,6 +172,10 @@ class MyHandler(SimpleHTTPRequestHandler):
 #  Specify the port to use
 PORT = 8000
 ipadd = wifi
+if ipadd == "":
+    ipadd = '127.0.0.1'
+else:
+    ipadd = wifi
 
 if __name__ == "__main__":
     PORT = 8000

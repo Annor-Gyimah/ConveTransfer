@@ -1,6 +1,6 @@
 import tkinter as tk
-from PIL import Image, ImageOps, ImageTk
 from tkinter import font
+from PIL import Image, ImageOps, ImageTk
 import ttkbootstrap as ttk
 import webbrowser
 from resourcepath import resource_path, resource_path2
@@ -46,7 +46,7 @@ class DisplayAboutMe(ttk.Toplevel):
         f3 = tk.Frame(f2)
         f3.pack()
 
-        def call_link(*args):
+        def call_link():
             webbrowser.open_new_tab('https://www.youtube.com/c/mechanizecode')
 
         tk.Label(f1, text=__AppName__ + ' ' + str(__version__)).pack()

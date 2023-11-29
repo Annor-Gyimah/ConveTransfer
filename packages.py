@@ -41,20 +41,12 @@ from phonelink import Phonelink
 # from pro import load_configuration,save_configuration,load_profile_image,create_circular_mask,update_profile_image,change_user_name
 
 
-from http.server import SimpleHTTPRequestHandler
-import socketserver
-import urllib
-
-import html
-import shutil
-import cgi
-
 from PIL import Image, ImageTk
 
 from get_ip import wifi
 try:
     sys.path.append("C:/Users/DELL/Desktop/socketra/Lib/site-packages/qrcode")
-
+    sys.path.append("C:/Users/DELL/Desktop/socketra/Lib/site-packages/schedule")
     import qrcode
     
 except ModuleNotFoundError:

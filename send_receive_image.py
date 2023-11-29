@@ -1,6 +1,6 @@
 import socket
 import os
-from get_ip import get_ip
+import get_ip
 import json
 from resourcepath import resource_path2
 from wifi_name import get_wifi_ssid

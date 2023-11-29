@@ -1,7 +1,7 @@
 
 import ctypes.wintypes
 from packages import *
-
+import random
 
 
 connection.Database()
@@ -11,12 +11,12 @@ from metadata import __version__
 from metadata import __AppName__
 
 
-
-
 class Root(ttk.Window, TkinterDnD.DnDWrapper):
+    
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.TkdndVersion = TkinterDnD._require(self)
+        
         self.send_file_count = 0
         self.receive_file_count = 0
         if os.path.exists('ips'):
@@ -99,9 +99,13 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
             sent_received = translation_dict.get('Sent/Received','')
             youtu = translation_dict.get('Youtube Downloads','')
             profile = translation_dict.get('Profile','')
+            drandrop = translation_dict.get("Drag 'n' Drop", '')
+            phonelink = translation_dict.get("Phone Link", '')
             root.note.add(self.tab1, text=sent_received)
             root.note.add(self.tab2, text=youtu)
             root.note.add(self.tab3, text=profile)
+            root.note.add(self.tab4, text=drandrop)
+            root.note.add(self.tab5, text=phonelink)
             root.check.config(text=translation_dict.get('mode',''))
             root.howto_submenu.config()
             root.sentnum.config(text=translation_dict.get('sent:', '') + f'{sent_count}')
@@ -110,6 +114,19 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
             root.Label_savefolder.config(text=translation_dict.get('Save To:', ''))
             root.vid_resolution_label.config(text=translation_dict.get('Resolution',''))
             root.youtube_download_butt.config(text=translation_dict.get('Download',''))
+            drag_label.config(text=translation_dict.get('Drag and drop to transfer files',''))
+            root.push_button.config(text=translation_dict.get('Turn On', ''))
+            root.step1_label.config(text=translation_dict.get("Connect both phone and pc to the same network.",''))
+            root.step2_label.config(text=translation_dict.get("Click on the 'Turn On' to start sharing.",''))
+            root.step3_label.config(text=translation_dict.get("Open up your phone's camera or your qrcode scanner to scan the qrcode.",''))
+            root.step4_label.config(text=translation_dict.get("A link will be generated on your phone via the qrcode scanner.",''))
+            root.ss1.config(text=translation_dict.get("Click on it to go to your browser.",''))
+            root.other_steps_label.config(text=translation_dict.get("Or Alternatively, open your web browser on your phone.", ''))
+            root.oo2.config(text=translation_dict.get("Then you type in this address",'') +  " " +  f'{root.server_url}')
+            root.step5_label.config(text=translation_dict.get("Choose a file to upload",''))
+            root.step6_label.config(text=translation_dict.get("Select a destination",''))
+            root.step7_label.config(text=translation_dict.get("Click on Upload.",''))
+            
             #root.button_pic.config(text=translation_dict.get('Send',''))
 
             sent_heading = translation_dict.get('sent', '')
@@ -213,7 +230,8 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         #self.iconpath = Image.open(resource_path('icon.png'))
         
         #self.wm_iconwindow(self.iconpath)
-        
+        #self.bind("<Configure>", self.on_resize)
+
         
         def translate_notification(text):
             if self.current_language in self.translations:
@@ -302,7 +320,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         self.var = ttk.IntVar()
         self.check = ttk.Checkbutton(self.button_frame,variable=self.var, bootstyle="round-toggle",onvalue=0,offvalue=1, text=translate_notification("mode"),command=self.checker)
         self.check.pack(side=tk.RIGHT)
-        self.style_window = Style(theme=DEFAULT_THEME)
+        
         
         
 
@@ -341,7 +359,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         self.portid.pack(padx=2,pady=(2,2))
         
         
-        self.labelloc = ttk.Label(self.entries, text=translate_notification("Receive Folder"), font=('aria',10,'bold'))
+        self.labelloc = ttk.Label(self.entries, text=translate_notification("Receive Folder"), font=('arial',10,'bold'))
         self.labelloc.pack(side=tk.TOP,padx=(2,2),pady=2)
         self.folder_nam = ttk.StringVar()
         self.folder_name = ttk.Entry(self.entries, textvariable=self.folder_nam, width=23)
@@ -357,7 +375,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         self.radiobuttons_frame.pack(pady=3)
         self.receive_path_label = ttk.Frame(self.radiobuttons_frame)
         self.receive_path_label.pack(pady=3)
-        self.labelpath = ttk.Label(self.receive_path_label,text=translate_notification('Receive Path'), font=('Arial',10,'bold'))
+        self.labelpath = ttk.Label(self.receive_path_label,text=translate_notification('Receive Path'), font=('arial',10,'bold'))
         self.labelpath.pack()
 
         self.des = ttk.Radiobutton(self.radiobuttons_frame, bootstyle='danger',text=translate_notification('Desktop'),value=self.desktop,variable=self.loc).pack(padx=(1,85),pady=3)
@@ -417,6 +435,24 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
 
         self.transferred_files = []
         self.populateview()
+        
+        
+        # try:
+        #     self.them = resource_path2(relative_path='thema.txt')
+        #     with open(self.them,'r') as fds:
+        #         news = fds.readline()
+            
+        #     if news == 'darktheme':
+
+        #         self.style_window = Style(theme='darkly')
+        #         self.table.tag_configure('evenrow', background='#05060a')#A36D8C
+        #         self.table.tag_configure('oddrow', background='#171a2b')#6D73A3
+        #     elif news == 'light':
+        #         self.style_window = Style(theme=DEFAULT_THEME)
+        # except FileNotFoundError:
+            
+            
+        self.style_window = Style(theme=DEFAULT_THEME)
 
         
         
@@ -470,8 +506,43 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         self.sep = ttk.Separator(self.entries2, bootstyle='danger', orient='horizontal')
         self.sep.pack(fill='x',pady=3, padx=50)
         
-       
+        
+        def generate_tip():
+            
+            tips = [
+                
+                ("Tip 1: On your first attempt to transfer files if it doesnt work, please check whether you are connected to the network or not."),
+                ("Tip 2: Make sure you regularly check for updates."),
+                ("Tip 3: For new users, go to 'Help Menu' and click on 'How To' to know how to send and receive a file."),
+                ("Tip 4: If sending a file or receiving a file seems not to work upon all conditions satisfied, go to your task manager, quit the 'ConveTransfer' App and launch it again."),
+                ("Tip 5: There a several ways to transfer files. Try the main 'Send' button, the 'Drag 'n' Drop' tab or via the 'Profile' tab."),
+                ("Tip 6: A receiver can send files via the 'Profile' tab without having to type in the sender's ip address in the 'IP' field."),
+                ("Tip 7: To change language, go to the 'Help' menu, click on 'Languages' and select the language of your choice.")
 
+
+            ]
+            return random.choice(tips)
+
+        
+        def show_tip():
+            def translate_message_box(title_key, message_key):
+                if self.current_language in self.translations:
+                    translation_dict = self.translations[self.current_language]
+                else:
+                    translation_dict = self.translations['en']  # Fallback to English if the language is not found
+
+                title = translation_dict.get(title_key)
+                message = translation_dict.get(message_key)
+                
+                message_ico = resource_path(relative_path='images/unt.ico')
+                self.iconbitmap(default=message_ico)
+                return messagebox.showinfo(title, message)
+            tip = generate_tip()
+            translate_message_box("Tip of the Day",tip)
+        self.after(4000, show_tip)
+        
+
+        
         def get_image_paths(directory):
             image_paths = [os.path.join(directory, file) for file in os.listdir(directory) if file.endswith(('.jpg', '.png', '.jpeg', '.gif'))]
             return image_paths
@@ -495,8 +566,8 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                     row_frame = ttk.Frame(self.entries2)
                     row_frame.pack(fill='x', padx=10, pady=5)
 
-                previ = ttk.Label(row_frame, text='Previous Contacts', font=('Arial',12,'italic'))#, foreground='#8557a8')
-                previ.pack()
+                # previ = ttk.Label(row_frame, text='Previous Contacts', font=('Arial',12,'italic'))#, foreground='#8557a8')
+                # previ.pack()
                 img = create_circular_image(image_path)
                 img_tk = ImageTk.PhotoImage(img)
                 label_pic = ttk.Label(row_frame, image=img_tk)
@@ -553,49 +624,21 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         plus_label.pack(anchor='center',padx=100,pady=160)
 
         # Add a Label with the drag and drop text
-        drag_label = ttk.Label(dragg_frame, text='Drag and drop to transfer files', font=('Helvetica',12))
+        drag_label = ttk.Label(dragg_frame, text=translate_notification('Drag and drop to transfer files'), font=('Helvetica',12))
         drag_label.pack(anchor='center',padx=100)
         dragg_frame.drop_target_register(DND_ALL)
         dragg_frame.dnd_bind("<<Drop>>", self.get_path)
         
-        # dragndrop_image = Image.open(resource_path(relative_path='images/dragndrop.jpg'))
-        # dragndrop_image = dragndrop_image.resize((660,600))
-        # dragndrop_image = ImageTk.PhotoImage(dragndrop_image)
-        # self.dragndrop_image = dragndrop_image
-        # ttk.Label(dragg_frame, image=dragndrop_image).pack(fill='both')
-        # def create_square_window():
-           
-        #     pla = dragg_frame
-
-            
-        #     # # Create the top border
-        #     # top_border = tk.Label(pla, text="-" * (size + 80))
-        #     # top_border.pack(fill='x')
-
-        #     # # Create sides
-        #     # for _ in range(size):
-        #     #     side = tk.Label(pla, text="|" + " " * 143 + "|")
-        #     #     side.pack(fill='both')
-
-        #     # # Create the bottom border
-        #     # bottom_border = tk.Label(pla, text="-" * (size + 80))
-        #     # bottom_border.pack(fill='x')
-
-        #     # Add a Label with a plus sign
-            
-
-           
-        # # Adjust this value as needed
-        # square_size = 15
-
-        # Call the function to create the window
-        #create_square_window()
         Phonelink(self)
+       
 
 
 
-        
-        
+    # def on_resize(self,event):
+    #     width = self.winfo_width()
+    #     height = self.winfo_height()
+    #     print(f"Window size is {width} x {height}")   
+  
     # def toggle_frames(self):
     #     if self.entries.winfo_ismapped():  # Check if the first frame is currently visible
     #         self.entries.pack_forget()  # Hide the first frame
@@ -603,10 +646,12 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
     #     else:
     #         self.second_frame.pack_forget()  # Hide the second frame
     #         self.entries.pack(fill='both', side='left', padx=(1, 1), pady=1)  # Show the first frame
-
+   
     from language_config import load_language_config, save_language_config
     from theme_display import checker
-
+    
+    
+    
     
     def load_configuration(self):
         try:
@@ -792,8 +837,8 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         self.select_button.configure(state='normal')
         self.receive_button.configure(state='normal')
         self.update_button.configure(state='normal')
-        
-        
+
+    
     def stop_enable(self):
         
         self.stop_button.configure(state='normal')
@@ -826,6 +871,13 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
     #         print("File transfer completed.")
     from dragndrop import get_path
 
+    def translate_notification(self,message_key):
+        if self.current_language in self.translations:
+            translation_dict = self.translations[self.current_language]
+        else:
+            translation_dict = self.translations['en']  # Fallback to English if the language is not found
+        return translation_dict.get(message_key, message_key)
+    chunk = 65536
 
     def send_file(self):
         self.disable_buttons()
@@ -847,13 +899,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
             self.PORT = int(self.PORT)
 
         self.send_stop = False
-        def translate_notification(message_key):
-            if self.current_language in self.translations:
-                translation_dict = self.translations[self.current_language]
-            else:
-                translation_dict = self.translations['en']  # Fallback to English if the language is not found
-            return translation_dict.get(message_key, message_key)
-
+        
         
         try:
             total_size = os.path.getsize(self.filepath)
@@ -881,7 +927,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
             
                             
             #self.message = Messagebox.show_info('Response', "It seems your selection was empty")
-            info12 = translate_notification("It seems your selection was empty")
+            info12 = self.translate_notification("It seems your selection was empty")
             self.toast = ToastNotification(title='Response',alert=True,message=info12,duration=3000,bootstyle='danger')
             self.toast.show_toast()
             # If unable to get total size, re-enable the buttons and return
@@ -922,7 +968,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                     # start_time = time.time() 
                     
                     with open(self.filepath, 'rb') as self.file:
-                        self.data = self.file.read(65536)
+                        self.data = self.file.read(self.chunk)
                         while self.data:
                             
                             if self.send_stop:
@@ -939,7 +985,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                             # self.t_time.configure(text=f"{int(progress)}%   {estimated_time_remaining:.1f} secs")
                             self.t_time.configure(text=f"{int(progress)}% ")
                             
-                            self.data = self.file.read(65536)
+                            self.data = self.file.read(self.chunk)
                             
                     print("File sent successfully.")
                     
@@ -947,8 +993,8 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                     
 
                     
-                    info1 = translate_notification("sent successfully")
-                    self.message = ToastNotification(title='Response',alert=True,message=f'{self.filename}{info1}',duration=3000,bootstyle='success')
+                    info1 = self.translate_notification("sent successfully")
+                    self.message = ToastNotification(title='Response',alert=True,message=f'{self.filename} {info1}',duration=3000,bootstyle='success')
                     self.message.show_toast()
 
 
@@ -974,7 +1020,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
             except Exception as e:
                 #print(f'This is the reason {e}')
                 if self.HOST == '':
-                    info2 = translate_notification("The IP can't be empty")
+                    info2 = self.translate_notification("The IP can't be empty")
                     self.message = ToastNotification(title='Response',alert=True,message=f'{info2}',duration=3000,bootstyle='danger')
                     self.message.show_toast()
                 # elif self.HOST == self.wifi:
@@ -982,11 +1028,11 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                 #     self.message = ToastNotification(title='Response',alert=True,message=info3,duration=3000,bootstyle='danger')
                 #     self.message.show_toast()
                 elif any(c.isalpha() or c in "!@#$%^&*()_=[]:;?/><+-|" for c in self.HOST):
-                    info4 = translate_notification("is a wrong IP address format")
+                    info4 = self.translate_notification("is a wrong IP address format")
                     self.message = ToastNotification(title='Response',alert=True,message=f'{self.HOST}{info4}',duration=3000,bootstyle='danger')
                     self.message.show_toast()
                 elif len(self.HOST) > 15 or len(self.HOST) < 8:
-                    info5 = translate_notification("is not Valid IP")
+                    info5 = self.translate_notification("is not Valid IP")
                     self.message = ToastNotification(title='Response',alert=True,message=f'{self.HOST}{info5}',duration=3000,bootstyle='danger')
                     self.message.show_toast()
             finally:
@@ -1011,12 +1057,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
     def receive_file(self):       
 
         self.stop_receive = False
-        def translate_notification(message_key):
-            if self.current_language in self.translations:
-                translation_dict = self.translations[self.current_language]
-            else:
-                translation_dict = self.translations['en']  # Fallback to English if the language is not found
-            return translation_dict.get(message_key, message_key)
+        
         
         def receive_thread(): 
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as self.server_socket:
@@ -1036,7 +1077,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                 
                     all_loc = [self.des, self.doc, self.vid, self.mus, self.pic, self.dow]
                     if all(location == '' for location in all_loc) and self.folder_name == '':
-                        info1 = translate_notification("The Receive Path must be selected at least")
+                        info1 = self.translate_notification("The Receive Path must be selected at least")
                         self.message = ToastNotification(title='Response', alert=True, message=info1, duration=3000, bootstyle='warning')
                         self.message.show_toast()
                         return
@@ -1044,8 +1085,8 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                     folder_exist = any(os.path.exists(os.path.join(location, self.folder_name)) for location in all_loc)
 
                     if not folder_exist:
-                        f1 = translate_notification('The folder')
-                        f2 = translate_notification("doesn't exist in any specified Receive Path")
+                        f1 = self.translate_notification('The folder')
+                        f2 = self.translate_notification("doesn't exist in any specified Receive Path")
                         info2 = f" {f1} '{self.folder_name}' {f2}"
                         self.message = ToastNotification(title='Response', alert=True, message=info2, duration=3000, bootstyle='warning')
                         self.message.show_toast()
@@ -1134,7 +1175,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                     filee = self.file_path
                     with open(self.file_path, 'wb') as file:
                         received_bytes = 0
-                        data = self.conn.recv(65536)
+                        data = self.conn.recv(self.chunk)
                         while data:
                             if self.stop_receive:
                                 break
@@ -1144,7 +1185,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                             progress_window.progress_bar['value'] = received_bytes
                             self.update_idletasks()  # Update receiving progress
                             self.t_time.configure(text=f"{int(progress)}% ")
-                            data = self.conn.recv(65536)
+                            data = self.conn.recv(self.chunk)
                             
                     self.receive_file_count += 1
                                           
@@ -1163,7 +1204,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                         
                     if not self.stop_receive:
                         #print(f"File '{self.filename}' received and saved successfully.")
-                        info1 = translate_notification("received successfully")
+                        info1 = self.translate_notification("received successfully")
                         self.message = ToastNotification(title='Response',alert=True,message=f'{self.filename} {info1}',duration=3000,bootstyle='success')
                         self.message.show_toast()
                         # Destroy the progress window
@@ -1178,19 +1219,19 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                     
                 except:
                     if self.HOST == '':
-                        info2 = translate_notification("The IP can't be empty")
+                        info2 = self.translate_notification("The IP can't be empty")
                         self.message = ToastNotification(title='Response',alert=True,message=f'{info2}',duration=3000,bootstyle='danger')
                         self.message.show_toast()
                     # elif self.HOST != self.wifi:
-                    #     info3 = translate_notification("Please use your IP")
+                    #     info3 = self.translate_notification("Please use your IP")
                     #     self.message = ToastNotification(title='Response',alert=True,message=f'{info3} {self.wifi}',duration=3000,bootstyle='danger')
                     #     self.message.show_toast()
                     elif any(c.isalpha() or c in "!@#$%^&*()_=[]:;?/><+-|" for c in self.HOST):
-                        info4 = translate_notification("is a wrong IP address format")
+                        info4 = self.translate_notification("is a wrong IP address format")
                         self.message = ToastNotification(title='Response',alert=True,message=f'{self.HOST}{info4}',duration=3000,bootstyle='warning')
                         self.message.show_toast()
                     elif len(self.HOST) > 15 or len(self.HOST) < 8:
-                        info5 = translate_notification("is not Valid IP")
+                        info5 = self.translate_notification("is not Valid IP")
                         self.message = ToastNotification(title='Response',alert=True,message=f'{self.HOST}{info5}',duration=3000,bootstyle='danger')
                         self.message.show_toast()
                     # elif self.folder_name == '':
@@ -1235,13 +1276,6 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
             
 
             self.send_stop = False
-            def translate_notification(message_key):
-                if self.current_language in self.translations:
-                    translation_dict = self.translations[self.current_language]
-                else:
-                    translation_dict = self.translations['en']  # Fallback to English if the language is not found
-                return translation_dict.get(message_key, message_key)
-
             
             try:
                 total_size = os.path.getsize(self.filepath)
@@ -1267,7 +1301,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                 
                                 
                 #self.message = Messagebox.show_info('Response', "It seems your selection was empty")
-                info12 = translate_notification("It seems your selection was empty")
+                info12 = self.translate_notification("It seems your selection was empty")
                 self.toast = ToastNotification(title='Response',alert=True,message=info12,duration=3000,bootstyle='danger')
                 self.toast.show_toast()
                 # If unable to get total size, re-enable the buttons and return
@@ -1308,7 +1342,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                         self.button_pic.configure(state='disabled')
                         
                         with open(self.filepath, 'rb') as self.file:
-                            self.data = self.file.read(65536)
+                            self.data = self.file.read(self.chunk)
                             while self.data:
                                 
                                 if self.send_stop:
@@ -1325,7 +1359,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                                 # self.t_time.configure(text=f"{int(progress)}%   {estimated_time_remaining:.1f} secs")
                                 self.t_time.configure(text=f"{int(progress)}% ")
                                 
-                                self.data = self.file.read(65536)
+                                self.data = self.file.read(self.chunk)
                                 
                         print("File sent successfully.")
                         
@@ -1333,7 +1367,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                         
 
                         
-                        info1 = translate_notification("sent successfully")
+                        info1 = self.translate_notification("sent successfully")
                         self.message = ToastNotification(title='Response',alert=True,message=f'{self.filename}{info1}',duration=3000,bootstyle='success')
                         self.message.show_toast()
 
@@ -1359,7 +1393,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                 except Exception as e:
                     #print(f'This is the reason {e}')
                     if self.HOST == '':
-                        info2 = translate_notification("The IP can't be empty")
+                        info2 = self.translate_notification("The IP can't be empty")
                         self.message = ToastNotification(title='Response',alert=True,message=f'{info2}',duration=3000,bootstyle='danger')
                         self.message.show_toast()
                     # elif self.HOST == self.wifi:
@@ -1367,11 +1401,11 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                     #     self.message = ToastNotification(title='Response',alert=True,message=info3,duration=3000,bootstyle='danger')
                     #     self.message.show_toast()
                     elif any(c.isalpha() or c in "!@#$%^&*()_=[]:;?/><+-|" for c in self.HOST):
-                        info4 = translate_notification("is a wrong IP address format")
+                        info4 = self.translate_notification("is a wrong IP address format")
                         self.message = ToastNotification(title='Response',alert=True,message=f'{self.HOST}{info4}',duration=3000,bootstyle='danger')
                         self.message.show_toast()
                     elif len(self.HOST) > 15 or len(self.HOST) < 8:
-                        info5 = translate_notification("is not Valid IP")
+                        info5 = self.translate_notification("is not Valid IP")
                         self.message = ToastNotification(title='Response',alert=True,message=f'{self.HOST}{info5}',duration=3000,bootstyle='danger')
                         self.message.show_toast()
                 finally:
@@ -1391,9 +1425,40 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
             threading.Thread(target=transfer_file).start()
         return on_button_click
 
-    
-    
+
+
+# class SplashScreen(ttk.Window):
+#     def __init__(self, parent):
+#         super().__init__(parent)
+#         self.title("Splash Screen")
+#         #self.geometry("400x200")
+#         self.attributes("-topmost", 1)
+
+#         width_of_window = 427
+#         height_of_window = 250
+#         screen_width = self.winfo_screenwidth()
+#         screen_height = self.winfo_screenheight()
+#         x_coordinate = (screen_width/2)-(width_of_window/2)
+#         y_coordinate = (screen_height/2)-(height_of_window/2)
+#         self.geometry("%dx%d+%d+%d" %(width_of_window,height_of_window,x_coordinate,y_coordinate))
+#         #w.configure(bg='#ED1B76')
+#         self.overrideredirect(1) #for hiding titlebar
+
+#         # Add any widgets to the splash screen if needed
+#         label = ttk.Label(self, text="Loading...")
+#         label.pack(pady=50)
+
+#         # Call a method to perform initialization tasks
+#         self.initialize()
+
+#     def initialize(self):
+#         # Perform any necessary initialization tasks here
+#         self.update_idletasks()
+#         self.after(9000, self.destroy)  
+
+
+#w.destroy()
+
 if __name__ == "__main__":
     root = Root()
     root.mainloop()
-    

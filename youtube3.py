@@ -8,6 +8,7 @@ import ttkbootstrap as ttk
 from PIL import Image,ImageTk
 from tkinter import filedialog, messagebox
 import tkinter as tk
+from ttkbootstrap.scrolled import ScrolledFrame
 def youtube_tab(self):
     def translate_notification(text):
         if self.current_language in self.translations:
@@ -181,18 +182,19 @@ def youtube_tab(self):
         t2 = threading.Thread(target=download_video)
         t2.start()
 
-    self.youtubeframe = ttk.Frame(self.tab2, width=700, height=500, bootstyle='light')
-    self.youtubeframe.pack(pady=10)
+    #self.youtubeframe = ttk.Frame(self.tab2, width=700, height=500, bootstyle='light')
+    self.youtubeframe = ScrolledFrame(self.tab2,width=1750, height=1500, autohide=True)
+    self.youtubeframe.pack(fill='y', side='left', padx=(1, 1), pady=1)
 
     # Load the YouTube icon image
     youtubeico = Image.open(resource_path2('images/youtube.png'))
     youtubeico = youtubeico.resize((90,90))
     youtubeico = ImageTk.PhotoImage(youtubeico)
     self.youtubeico = youtubeico  # Keep a reference to the image object
-    youtubelabel = ttk.Label(self.youtubeframe, image=youtubeico)
+    youtubelabel = ttk.Label(self.youtubeframe, image=youtubeico, bootstyle='light')
     youtubelabel.pack()
 
-    link_frame = ttk.Frame(self.tab2)
+    link_frame = ttk.Frame(self.youtubeframe)
     link_frame.pack(padx=10, pady=(10, 0))
 
     self.Label_link = ttk.Label(link_frame, text=translate_notification("Link:"),font=('calibre', 10, 'normal'))
@@ -204,7 +206,7 @@ def youtube_tab(self):
     Entry_link.pack(side='left')
 
     # Create a frame for the Save To label and entry
-    save_folder_frame = ttk.Frame(self.tab2)
+    save_folder_frame = ttk.Frame(self.youtubeframe)
     save_folder_frame.pack(padx=10, pady=10)
 
     self.Label_savefolder = ttk.Label(save_folder_frame, text=translate_notification("Save To:"), font=('calibre', 10, 'normal'))
@@ -219,7 +221,7 @@ def youtube_tab(self):
     openbutton.pack(side='left', padx=(4,30))
     openbutton.image = op
 
-    resolution_frame = ttk.Frame(self.tab2)
+    resolution_frame = ttk.Frame(self.youtubeframe)
     resolution_frame.pack(padx=10, pady=10)
 
     self.vid_resolution_label = ttk.Label(resolution_frame, text=translate_notification('Resolution'), font=('calibre', 10, 'normal'))
@@ -235,7 +237,7 @@ def youtube_tab(self):
     vid_resolution_but.pack(side='left')
     vid_resolution_but.image = oq
 
-    progress_frame = ttk.Frame(self.tab2)
+    progress_frame = ttk.Frame(self.youtubeframe)
     progress_frame.pack(padx=10, pady=10)
 
     progress_bar = ttk.Progressbar(progress_frame, orient='horizontal', length=450, mode='determinate', bootstyle='success-striped')
@@ -244,7 +246,7 @@ def youtube_tab(self):
     progress_label = ttk.Label(progress_frame, text='')
     progress_label.pack(side='left', padx=(4, 15))
 
-    control_buttons = tk.Frame(self.tab2)
+    control_buttons = tk.Frame(self.youtubeframe)
     control_buttons.pack(padx=10, pady=10)
     self.youtube_download_butt = ttk.Button(control_buttons,text=translate_notification("Download"), command=downloadThread)
     self.youtube_download_butt.pack()

@@ -3,3 +3,4 @@ pywifi
 iface
 comtypes
 pytube
+qrcode

@@ -4,6 +4,7 @@ import ttkbootstrap as ttk
 import tkinter as tk
 import threading
 import sys
+import json
 import types
 import subprocess
 from PIL import Image, ImageTk
@@ -21,7 +22,39 @@ try:
 except ModuleNotFoundError:
     import qrcode
 def Phonelink(self):
+    def load_translations(file_path):
+        try:
+            with open(file_path, 'r', encoding='utf-8') as json_file:
+                translations = json.load(json_file)
+            return translations
+        except FileNotFoundError:
+            print("Translations file not found.")
+            return {}
+        except json.JSONDecodeError:
+            print("Error decoding translations JSON file.")
+            return {}
+        
+       
+       
+    self.language_config_file = 'language_config.txt'
+    try:
+        with open(self.language_config_file, 'r', encoding='utf-8') as config_file:
+            #print(config_file.read().strip())
+            
+            self.current_language= config_file.read().strip()
+        
+            
+    except FileNotFoundError:
+        return 'en'
+    self.translations = load_translations(resource_path2('translations.json'))
+
     
+    def translate_notification(message_key):
+        if self.current_language in self.translations:
+            translation_dict = self.translations[self.current_language]
+        else:
+            translation_dict = self.translations['en']  # Fallback to English if the language is not found
+        return translation_dict.get(message_key, message_key)
     
     PORT = 8000
 
@@ -57,29 +90,10 @@ def Phonelink(self):
 
     # Generate and display the initial QR code
     generate_qr_code()
-
-
-    # def run_server():
-    #     with socketserver.TCPServer(("", PORT), MyHandler) as httpd:
-    #         print(f"Serving at port {PORT}")
-    #         try:
-    #             httpd.serve_forever()
-                
-    #         except KeyboardInterrupt:
-    #             httpd.shutdown()
-    #             httpd.server_close()
-
-   
-
-    # def start():
-    #     # Create a thread for the HTTP server
-    #     server_thread = threading.Thread(target=run_server)
-
-    #     # Start the server thread
-    #     server_thread.start()
-
-    
     def start_server():
+
+        
+
         def resource_path(relative_path):
             """ Get absolute path to resource, works for dev and for PyInstaller """
             base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
@@ -99,8 +113,11 @@ def Phonelink(self):
         except Exception as e:
             print(f"Error starting server: {e}")
 
-    push_button = ttk.Button(pc_to_phone, text='Turn On', command=start_server)
-    push_button.pack(pady=10)
+
+    
+
+    self.push_button = ttk.Button(pc_to_phone, text=translate_notification('Turn On'), command=start_server)
+    self.push_button.pack(pady=10)
 
     
 
@@ -115,8 +132,8 @@ def Phonelink(self):
     step1_image = ImageTk.PhotoImage(step1_image)
     self.step1_image = step1_image
     ttk.Label(step1_frame, image=step1_image).pack(side='left', padx=(4,30))
-    step1_label = ttk.Label(step1_frame, text="Connect both phone and pc to the same network.")
-    step1_label.pack(pady=5)
+    self.step1_label = ttk.Label(step1_frame, text=translate_notification("Connect both phone and pc to the same network."))
+    self.step1_label.pack(pady=5)
 
     
 
@@ -128,8 +145,8 @@ def Phonelink(self):
     step2_image = ImageTk.PhotoImage(step2_image)
     self.step2_image = step2_image
     ttk.Label(step2_frame, image=step2_image).pack(side='left', padx=(4,30))
-    step2_label = ttk.Label(step2_frame, text="Click on the 'Turn On' to start sharing.")
-    step2_label.pack(pady=5)
+    self.step2_label = ttk.Label(step2_frame, text=translate_notification("Click on the 'Turn On' to start sharing."))
+    self.step2_label.pack(pady=5)
     
 
 
@@ -140,8 +157,8 @@ def Phonelink(self):
     step3_image = ImageTk.PhotoImage(step3_image)
     self.step3_image = step3_image
     ttk.Label(step3_frame, image=step3_image).pack(side='left', padx=(4,30))
-    step3_label = ttk.Label(step3_frame, text="Open up your phone's camera or your qrcode scanner to scan the qrcode.")
-    step3_label.pack(pady=5)
+    self.step3_label = ttk.Label(step3_frame, text=translate_notification("Open up your phone's camera or your qrcode scanner to scan the qrcode."))
+    self.step3_label.pack(pady=5)
 
     step4_frame = ttk.Frame(text_frame)
     step4_frame.pack(padx=10, pady=10)
@@ -150,13 +167,26 @@ def Phonelink(self):
     step4_image = ImageTk.PhotoImage(step4_image)
     self.step4_image = step4_image
     ttk.Label(step4_frame, image=step4_image).pack(side='left', padx=(4,30))
-    step4_label = ttk.Label(step4_frame, text="A link will be generated on your phone via the qrcode scanner. \n Click on it to go to your browser.")
-    step4_label.pack(pady=5)
-
-    server_url = f"http://{ipadd}:{PORT}/"
     
-    other_steps_label = ttk.Label(text_frame, text=f"Or Alternatively, open your web browser on your phone. \n Then you type in this address {server_url}")
-    other_steps_label.pack(pady=5)
+    
+    self.step4_label = ttk.Label(step4_frame, text=translate_notification("A link will be generated on your phone via the qrcode scanner."))
+    self.step4_label.pack(pady=5)
+    self.ss1 = ttk.Label(step4_frame,text=translate_notification("Click on it to go to your browser."))
+    self.ss1.pack()
+
+    ipadd = wifi
+    if ipadd == "":
+        ipadd = '127.0.0.1'
+    else:
+        ipadd = wifi
+    self.server_url = f"http://{ipadd}:{PORT}/"
+    # oo1 = translate_notification("Or Alternatively, open your web browser on your phone.")
+    # oo2 = translate_notification("Then you type in this address")
+    self.other_steps_label = ttk.Label(text_frame, text=translate_notification(f"Or Alternatively, open your web browser on your phone."))
+    self.other_steps_label.pack(pady=5)
+    self.oo2 = ttk.Label(text_frame, text=translate_notification(f"Then you type in this address {self.server_url}"))
+    self.oo2.pack()
+    
 
     step5_frame = ttk.Frame(text_frame)
     step5_frame.pack(padx=10, pady=10)
@@ -165,8 +195,8 @@ def Phonelink(self):
     step5_image = ImageTk.PhotoImage(step5_image)
     self.step5_image = step5_image
     ttk.Label(step5_frame, image=step5_image).pack(side='left', padx=(4,30))
-    step5_label = ttk.Label(step5_frame, text="Choose a file to upload")
-    step5_label.pack(pady=5)
+    self.step5_label = ttk.Label(step5_frame, text=translate_notification("Choose a file to upload"))
+    self.step5_label.pack(pady=5)
 
     step6_frame = ttk.Frame(text_frame)
     step6_frame.pack(padx=10, pady=10)
@@ -175,8 +205,8 @@ def Phonelink(self):
     step6_image = ImageTk.PhotoImage(step6_image)
     self.step6_image = step6_image
     ttk.Label(step6_frame, image=step6_image).pack(side='left', padx=(4,30))
-    step6_label = ttk.Label(step6_frame, text="Select a destination")
-    step6_label.pack(pady=5)
+    self.step6_label = ttk.Label(step6_frame, text=translate_notification("Select a destination"))
+    self.step6_label.pack(pady=5)
 
     step7_frame = ttk.Frame(text_frame)
     step7_frame.pack(padx=10, pady=10)
@@ -185,8 +215,8 @@ def Phonelink(self):
     step7_image = ImageTk.PhotoImage(step7_image)
     self.step7_image = step7_image
     ttk.Label(step7_frame, image=step7_image).pack(side='left', padx=(4,30))
-    step7_label = ttk.Label(step7_frame, text="Click on Upload to Upload")
-    step7_label.pack(pady=5)
+    self.step7_label = ttk.Label(step7_frame, text=translate_notification("Click on Upload."))
+    self.step7_label.pack(pady=5)
 
 
 
