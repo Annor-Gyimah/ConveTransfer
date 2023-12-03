@@ -46,7 +46,7 @@ class DisplayAboutMe(ttk.Toplevel):
         f3 = tk.Frame(f2)
         f3.pack()
 
-        def call_link():
+        def call_link(event):  # Modified to accept the event argument
             webbrowser.open_new_tab('https://www.youtube.com/c/mechanizecode')
 
         tk.Label(f1, text=__AppName__ + ' ' + str(__version__)).pack()

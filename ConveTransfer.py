@@ -16,6 +16,19 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.TkdndVersion = TkinterDnD._require(self)
+
+        self.title(__AppName__ + ' ' + str(__version__))
+        w = 1060
+        h = 690  # 780
+        sw = self.winfo_screenwidth()
+        sh = self.winfo_screenheight()
+        x = (sw - w) / 2
+        y = (sh - h) / 2
+        self.geometry('{0}x{1}+{2}+{3}'.format(w, h, int(x), int(y)))
+        self.resizable(width=True, height=True)
+        self.iconpath = resource_path(relative_path='images/unt.ico')
+        self.wm_iconbitmap(self.iconpath)
+
         
         self.send_file_count = 0
         self.receive_file_count = 0
@@ -82,6 +95,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
             root.labelid.config(text=translation_dict.get('IP', ''))
             root.menubar.entryconfig(0, label=translation_dict.get('File', ''))
             root.menubar.entryconfig(1, label= translation_dict.get('Help',''))
+            root.menubar.entryconfig(2, label=translation_dict.get('Settings', ''))
             root.filemenu.entryconfig(0, label=translation_dict.get('Exit', ''))
             root.filemenu.entryconfig(1, label=translation_dict.get('Send', ''))
             root.filemenu.entryconfig(2, label=translation_dict.get('Receive', ''))
@@ -122,10 +136,11 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
             root.step4_label.config(text=translation_dict.get("A link will be generated on your phone via the qrcode scanner.",''))
             root.ss1.config(text=translation_dict.get("Click on it to go to your browser.",''))
             root.other_steps_label.config(text=translation_dict.get("Or Alternatively, open your web browser on your phone.", ''))
-            root.oo2.config(text=translation_dict.get("Then you type in this address",'') +  " " +  f'{root.server_url}')
+            root.oo2.config(text=translation_dict.get("Then you type in this address",''))
             root.step5_label.config(text=translation_dict.get("Choose a file to upload",''))
             root.step6_label.config(text=translation_dict.get("Select a destination",''))
             root.step7_label.config(text=translation_dict.get("Click on Upload.",''))
+            #self.des.configure(bootstyle=)
             
             #root.button_pic.config(text=translation_dict.get('Send',''))
 
@@ -166,6 +181,9 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
 
         def howto():
             DisplayHowTo(self)
+        
+        def setts():
+            SomeSettings(self)
         
         def check_updates():
             def translate_message_box(title_key, message_key):
@@ -214,23 +232,23 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
             
 
         
-        self.title(__AppName__ + ' ' + str(__version__))
-        w = 1060
-        h = 690#780
-        sw = self.winfo_screenwidth()
-        sh = self.winfo_screenheight()
-        x = (sw - w) / 2
-        y = (sh - h) / 2
-        self.geometry('{0}x{1}+{2}+{3}'.format(w, h, int(x), int(y)))
-        self.resizable(width=True, height=True)
-        # self.iconpath = resource_path(relative_path='images//unt.ico')
-        # #self.iconbitmap(self.iconpath)
-        self.iconpath = resource_path(relative_path='images/unt.ico')
-        self.wm_iconbitmap(self.iconpath)
-        #self.iconpath = Image.open(resource_path('icon.png'))
+        # self.title(__AppName__ + ' ' + str(__version__))
+        # w = 1060
+        # h = 690#780
+        # sw = self.winfo_screenwidth()
+        # sh = self.winfo_screenheight()
+        # x = (sw - w) / 2
+        # y = (sh - h) / 2
+        # self.geometry('{0}x{1}+{2}+{3}'.format(w, h, int(x), int(y)))
+        # self.resizable(width=True, height=True)
+        # # self.iconpath = resource_path(relative_path='images//unt.ico')
+        # # #self.iconbitmap(self.iconpath)
+        # self.iconpath = resource_path(relative_path='images/unt.ico')
+        # self.wm_iconbitmap(self.iconpath)
+        # #self.iconpath = Image.open(resource_path('icon.png'))
         
-        #self.wm_iconwindow(self.iconpath)
-        #self.bind("<Configure>", self.on_resize)
+        # #self.wm_iconwindow(self.iconpath)
+        # #self.bind("<Configure>", self.on_resize)
 
         
         def translate_notification(text):
@@ -273,7 +291,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         #self.helpmenu.add_command(label='How To',command=howto)
         self.helpmenu.add_cascade(label=translate_notification('Language'), menu=self.howto_submenu)
         self.menubar.add_cascade(label=translate_notification('Help'),menu=self.helpmenu)
-        #self.menubar.add_cascade(label='Settings')
+        self.menubar.add_cascade(label=translate_notification('Settings'),command=setts)
         
 
         self.config(menu=self.menubar)
@@ -286,21 +304,24 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         self.s = ttk.Style()
         self.s.configure('Link.TButton',font=('Helvetica'))
         
-        #self.ima = resource_path2(relative_path='images/exit.png')
+        self.ima = resource_path2(relative_path='images/exit.png')
         self._select = ImageTk.PhotoImage(Image.open(resource_path2(relative_path='images/sent.png')))
         self.select_button = ttk.Button(self.button_frame,image=self._select,state='normal',bootstyle='Link.Tbutton',command=self.send_file)
+        #self.select_button = ttk.Button(self.button_frame,text='Send',state='normal',bootstyle='success',command=self.send_file)
         self.select_button.pack(side=tk.LEFT,padx=1,pady=1)
         ToolTip(self.select_button,text=translate_notification('Click to select and send a file'),bootstyle=(INVERSE))
         self.select_button.image = self._select
 
         self._stop = ImageTk.PhotoImage(Image.open(resource_path2(relative_path='images/stop.png')))
         self.stop_button = ttk.Button(self.button_frame, state='disabled',command=self.stop_transfer,image=self._stop,bootstyle='Link.Tbutton')
+        #self.stop_button = ttk.Button(self.button_frame, state='disabled',command=self.stop_transfer,text='Stop',bootstyle='danger')
         self.stop_button.pack(side=tk.LEFT,padx=1,pady=1)
         ToolTip(self.stop_button,text=translate_notification('Click to stop a file in transmission'),bootstyle=(INVERSE))
         self.stop_button.image = self._stop
         
         self._receive = ImageTk.PhotoImage(Image.open(resource_path2(relative_path='images/receive.png')))
         self.receive_button = ttk.Button(self.button_frame, image=self._receive,state='normal',bootstyle='Link.Tbutton',command=self.receive_file)
+        #self.receive_button = ttk.Button(self.button_frame, text='Receive',state='normal',bootstyle='success',command=self.receive_file)
         self.receive_button.pack(side=tk.LEFT,padx=1,pady=1)
         ToolTip(self.receive_button,text=translate_notification('Click to receive a file'),bootstyle=(INVERSE))
         self.receive_button.image = self._receive
@@ -308,25 +329,15 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         
         self._update = ImageTk.PhotoImage(Image.open(resource_path2(relative_path='images/updates.png')))
         self.update_button = ttk.Button(self.button_frame,image=self._update,bootstyle='Link.Tbutton',command=self.update_using_manager)
+        #self.update_button = ttk.Button(self.button_frame,text='Updates',bootstyle='primary',command=self.update_using_manager)
         self.update_button.pack(side=tk.LEFT,padx=1,pady=1)
         ToolTip(self.update_button,text=translate_notification('Update for new features and bug fixes'),bootstyle=(INVERSE))
         self.update_button.image = self._update
 
-        # self.tu = ttk.Button(self.button_frame, text='turn on',command=self.Phonelink)
-        # self.tu.pack(side=tk.LEFT,padx=1,pady=1)
-
-        
-            
         self.var = ttk.IntVar()
         self.check = ttk.Checkbutton(self.button_frame,variable=self.var, bootstyle="round-toggle",onvalue=0,offvalue=1, text=translate_notification("mode"),command=self.checker)
         self.check.pack(side=tk.RIGHT)
         
-        
-        
-
-        
-        
-
         self.host = ttk.StringVar() 
         self.port = ttk.StringVar()
         self.loc = ttk.StringVar()
@@ -338,12 +349,6 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
 
         self.entries = ttk.Frame(self.container_frame,width=70)
         self.entries.pack(fill='both',side='left',padx=(1,1),pady=1)
-        
-        
-
-        
-
-        
         
         self.labelid = ttk.Label(self.entries,text=translate_notification('IP'),font=('arial',10,'bold'))
         self.labelid.pack(side=tk.TOP,padx=(2,2),pady=2)
@@ -378,15 +383,15 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         self.labelpath = ttk.Label(self.receive_path_label,text=translate_notification('Receive Path'), font=('arial',10,'bold'))
         self.labelpath.pack()
 
-        self.des = ttk.Radiobutton(self.radiobuttons_frame, bootstyle='danger',text=translate_notification('Desktop'),value=self.desktop,variable=self.loc).pack(padx=(1,85),pady=3)
-        self.dow = ttk.Radiobutton(self.radiobuttons_frame, bootstyle='danger',text=translate_notification('Downloads'),value=self.downloads,variable=self.loc).pack(padx=(1,63),pady=3)
-        self.doc = ttk.Radiobutton(self.radiobuttons_frame, bootstyle='danger',text=translate_notification('Document'),value=self.documents,variable=self.loc).pack(padx=(2,70),pady=3)
-        self.pic = ttk.Radiobutton(self.radiobuttons_frame, bootstyle='danger',text=translate_notification('Pictures'),value=self.pictures,variable=self.loc).pack(padx=(1,92),pady=3)
-        self.mus = ttk.Radiobutton(self.radiobuttons_frame, bootstyle='danger',text=translate_notification('Music'),value=self.music,variable=self.loc).pack(padx=(1,105),pady=3)
-        self.vid = ttk.Radiobutton(self.radiobuttons_frame, bootstyle='danger',text=translate_notification('Videos'),value=self.videos,variable=self.loc).pack(padx=(1,97),pady=3)
+        # self.des = ttk.Radiobutton(self.radiobuttons_frame, bootstyle='danger',text=translate_notification('Desktop'),value=self.desktop,variable=self.loc).pack(padx=(1,85),pady=3)
+        # self.dow = ttk.Radiobutton(self.radiobuttons_frame, bootstyle='danger',text=translate_notification('Downloads'),value=self.downloads,variable=self.loc).pack(padx=(1,63),pady=3)
+        # self.doc = ttk.Radiobutton(self.radiobuttons_frame, bootstyle='danger',text=translate_notification('Document'),value=self.documents,variable=self.loc).pack(padx=(2,70),pady=3)
+        # self.pic = ttk.Radiobutton(self.radiobuttons_frame, bootstyle='danger',text=translate_notification('Pictures'),value=self.pictures,variable=self.loc).pack(padx=(1,92),pady=3)
+        # self.mus = ttk.Radiobutton(self.radiobuttons_frame, bootstyle='danger',text=translate_notification('Music'),value=self.music,variable=self.loc).pack(padx=(1,105),pady=3)
+        # self.vid = ttk.Radiobutton(self.radiobuttons_frame, bootstyle='danger',text=translate_notification('Videos'),value=self.videos,variable=self.loc).pack(padx=(1,97),pady=3)
+        self.stuff2 = [f'{self.desktop}', f'{self.documents}', f'{self.videos}', f'{self.music}', f'{self.downloads}', f'{self.pictures}']
+        self.rec = ttk.Combobox(self.radiobuttons_frame, bootstyle='danger', values=self.stuff2, textvariable=self.loc).pack()
         
-        
-
         
         self.note = ttk.Notebook(self, bootstyle='info')
         self.tab1 = ttk.Frame(self)
@@ -435,40 +440,47 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
 
         self.transferred_files = []
         self.populateview()
-        
-        
-        # try:
-        #     self.them = resource_path2(relative_path='thema.txt')
-        #     with open(self.them,'r') as fds:
-        #         news = fds.readline()
-            
-        #     if news == 'darktheme':
-
-        #         self.style_window = Style(theme='darkly')
-        #         self.table.tag_configure('evenrow', background='#05060a')#A36D8C
-        #         self.table.tag_configure('oddrow', background='#171a2b')#6D73A3
-        #     elif news == 'light':
-        #         self.style_window = Style(theme=DEFAULT_THEME)
-        # except FileNotFoundError:
-            
-            
-        self.style_window = Style(theme=DEFAULT_THEME)
-
-        
-        
+                
          
-        
         self.config_file = "config.json"
         self.load_configuration()
+        if self.mood == 'darkly':
+            self.style_window = Style()
+            self.style_window.theme_use(self.mood)
+            self.table.tag_configure('evenrow', background='#05060a')#A36D8C
+            self.table.tag_configure('oddrow', background='#171a2b')#6D73A3
+        elif self.mood == 'light':
+            self.style_window = Style(theme=DEFAULT_THEME)
+
+
+        def show_tip():
+            def translate_message_box(title_key, message_key):
+                if self.current_language in self.translations:
+                    translation_dict = self.translations[self.current_language]
+                else:
+                    translation_dict = self.translations['en']  # Fallback to English if the language is not found
+
+                title = translation_dict.get(title_key)
+                message = translation_dict.get(message_key)
+                
+                message_ico = resource_path(relative_path='images/unt.ico')
+                self.iconbitmap(default=message_ico)
+                return messagebox.showinfo(title, message)
+            tip = generate_tip()
+            translate_message_box("Tip of the Day",tip)
+        if self.tipss == 'ON':
+            self.after(4000, show_tip)
+        elif self.tipss == 'OFF':
+            pass
+        
         self.entries2 = ScrolledFrame(self.tab3,width=1750, autohide=True)
        
         self.entries2.pack(fill='both', side='left', padx=(1, 1), pady=1)
 
-       
-        profile_frame_1 = ttk.Frame(self.entries2)
-        profile_frame_1.pack()
+        self.profile_frame_1 = ttk.Frame(self.entries2)
+        self.profile_frame_1.pack()
         
-        self.profile_image_label = ttk.Label(profile_frame_1)
+        self.profile_image_label = ttk.Label(self.profile_frame_1)
         self.profile_image_label.pack(pady=5)
 
         #Load the profile image from the stored path and create a circular mask
@@ -476,14 +488,14 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         self.create_circular_mask()
 
         #Create a button to update the profile image
-        update_image_button = ttk.Button(profile_frame_1, text="Edit Image", command=self.update_profile_image, width=13, bootstyle='success')
+        update_image_button = ttk.Button(self.profile_frame_1, text="Edit Image", command=self.update_profile_image, width=13, bootstyle='success')
         update_image_button.pack()
 
-        name_frame = ttk.Frame(profile_frame_1)
-        name_frame.pack(pady=2)
+        self.name_frame = ttk.Frame(self.profile_frame_1)
+        self.name_frame.pack(pady=2)
 
         #Create a label for the user name
-        self.name_label = ttk.Label(name_frame, text=self.stats["Name"])
+        self.name_label = ttk.Label(self.name_frame, text=self.stats["Name"])
         self.name_label.pack(side='left',padx=(55,2))
 
         
@@ -491,9 +503,10 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         #Create a button to change the user name
         
         edit_name = ImageTk.PhotoImage(Image.open(resource_path2('images/edit.png')))
-        change_name_button = ttk.Button(name_frame, image=edit_name, command=self.change_user_name, bootstyle='Link.Tbutton')
-        change_name_button.pack(side='left',padx=5)
-        change_name_button.image = edit_name
+        
+        self.change_name_button = ttk.Button(self.name_frame, image=edit_name, command=self.change_user_name, bootstyle='Link.Tbutton')
+        self.change_name_button.pack(side='left',padx=5)
+        self.change_name_button.image = edit_name
         
         sent_count, received_count = connection.get_sent_received_counts()
         self.labelsent = translate_notification("sent:") 
@@ -524,22 +537,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
             return random.choice(tips)
 
         
-        def show_tip():
-            def translate_message_box(title_key, message_key):
-                if self.current_language in self.translations:
-                    translation_dict = self.translations[self.current_language]
-                else:
-                    translation_dict = self.translations['en']  # Fallback to English if the language is not found
-
-                title = translation_dict.get(title_key)
-                message = translation_dict.get(message_key)
-                
-                message_ico = resource_path(relative_path='images/unt.ico')
-                self.iconbitmap(default=message_ico)
-                return messagebox.showinfo(title, message)
-            tip = generate_tip()
-            translate_message_box("Tip of the Day",tip)
-        self.after(4000, show_tip)
+        
         
 
         
@@ -650,6 +648,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
     from language_config import load_language_config, save_language_config
     from theme_display import checker
     
+
     
     
     
@@ -659,12 +658,19 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                 data = json.load(config_file)
                 self.profile_image_path = data.get("profile_image", resource_path2(relative_path="images/default.png"))
                 self.stats = data.get("stats", {"Name": "John Doe", "Age": 30, "Location": "City"})
+                self.mood = data.get("Mode")
+                self.tipss = data.get("Tips")
         except FileNotFoundError:
             self.profile_image_path = resource_path2(relative_path="images/default.png")
             self.stats = {"Name": "John Doe", "Age": 30, "Location": "City"}
+            self.mood = ("light")
+            self.tipss = ("ON")
+            data = {"profile_image": self.profile_image_path, "stats": self.stats, "Mode": self.mood, "Tips": self.tipss}
+            with open(self.config_file, 'w') as config_file:
+                json.dump(data, config_file)
 
     def save_configuration(self):
-        data = {"profile_image": self.profile_image_path, "stats": self.stats}
+        data = {"profile_image": self.profile_image_path, "stats": self.stats, "Mode": self.them, "Tips": self.tipss}
         with open(self.config_file, "w") as config_file:
             json.dump(data, config_file)
 
@@ -1067,15 +1073,18 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                     self.HOST = str(self.HOST) 
                     self.PORT = int(self.PORT)
                     self.folder_name = self.folder_nam.get()
-                    self.des = self.loc.get()
-                    self.doc = self.loc.get()
-                    self.vid = self.loc.get()
-                    self.mus = self.loc.get()
-                    self.pic = self.loc.get()
-                    self.dow = self.loc.get()
+                    # self.des = self.loc.get()
+                    # self.doc = self.loc.get()
+                    # self.vid = self.loc.get()
+                    # self.mus = self.loc.get()
+                    # self.pic = self.loc.get()
+                    # self.dow = self.loc.get()
+                    self.recc = self.loc.get() 
+                    print(self.recc)
                    
                 
-                    all_loc = [self.des, self.doc, self.vid, self.mus, self.pic, self.dow]
+                    #all_loc = [self.des, self.doc, self.vid, self.mus, self.pic, self.dow]
+                    all_loc = [self.recc]
                     if all(location == '' for location in all_loc) and self.folder_name == '':
                         info1 = self.translate_notification("The Receive Path must be selected at least")
                         self.message = ToastNotification(title='Response', alert=True, message=info1, duration=3000, bootstyle='warning')
@@ -1094,30 +1103,30 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                     else:
                     
                         for i in all_loc:
-                            if i == self.des and self.folder_name != '':
-                                self.final_folder = os.path.join(self.des, self.folder_name)
-                            elif i == self.des and self.folder_name == '':
-                                self.final_folder = self.des
-                            elif i == self.doc and self.folder_name != '':
-                                self.final_folder = os.path.join(self.doc, self.folder_name)
-                            elif i == self.doc and self.folder_name == '':
-                                self.final_folder = self.doc
-                            elif i == self.vid and self.folder_name != '':
-                                self.final_folder = os.path.join(self.vid, self.folder_name)
-                            elif i == self.vid and self.folder_name == '':
-                                self.final_folder = self.vid
-                            elif i == self.pic and self.folder_name != '':
-                                self.final_folder = os.path.join(self.pic, self.folder_name)
-                            elif i == self.pic and self.folder_name == '':
-                                self.final_folder = self.pic
-                            elif i == self.dow and self.folder_name != '':
-                                self.final_folder = os.path.join(self.dow, self.folder_name)
-                            elif i == self.dow and self.folder_name == '':
-                                self.final_folder = self.dow
-                            elif i == self.mus and self.folder_name != '':
-                                self.final_folder = os.path.join(self.mus, self.folder_name)
-                            elif i == self.mus and self.folder_name == '':
-                                self.final_folder = self.mus
+                            if i == self.recc and self.folder_name != '':
+                                self.final_folder = os.path.join(self.recc, self.folder_name)
+                            elif i == self.recc and self.folder_name == '':
+                                self.final_folder = self.recc
+                            elif i == self.recc and self.folder_name != '':
+                                self.final_folder = os.path.join(self.recc, self.folder_name)
+                            elif i == self.recc and self.folder_name == '':
+                                self.final_folder = self.recc
+                            elif i == self.recc and self.folder_name != '':
+                                self.final_folder = os.path.join(self.recc, self.folder_name)
+                            elif i == self.recc and self.folder_name == '':
+                                self.final_folder = self.recc
+                            elif i == self.recc and self.folder_name != '':
+                                self.final_folder = os.path.join(self.recc, self.folder_name)
+                            elif i == self.recc and self.folder_name == '':
+                                self.final_folder = self.recc
+                            elif i == self.recc and self.folder_name != '':
+                                self.final_folder = os.path.join(self.recc, self.folder_name)
+                            elif i == self.recc and self.folder_name == '':
+                                self.final_folder = self.recc
+                            elif i == self.recc and self.folder_name != '':
+                                self.final_folder = os.path.join(self.recc, self.folder_name)
+                            elif i == self.recc and self.folder_name == '':
+                                self.final_folder = self.recc
                        
                     # if not os.path.exists(self.default_loc) or not os.path.isdir(self.default_loc):
                     #     info2 = "The specified receiving directory does not exist or is not valid"
@@ -1424,40 +1433,6 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
             # Start the file transfer in a separate thread
             threading.Thread(target=transfer_file).start()
         return on_button_click
-
-
-
-# class SplashScreen(ttk.Window):
-#     def __init__(self, parent):
-#         super().__init__(parent)
-#         self.title("Splash Screen")
-#         #self.geometry("400x200")
-#         self.attributes("-topmost", 1)
-
-#         width_of_window = 427
-#         height_of_window = 250
-#         screen_width = self.winfo_screenwidth()
-#         screen_height = self.winfo_screenheight()
-#         x_coordinate = (screen_width/2)-(width_of_window/2)
-#         y_coordinate = (screen_height/2)-(height_of_window/2)
-#         self.geometry("%dx%d+%d+%d" %(width_of_window,height_of_window,x_coordinate,y_coordinate))
-#         #w.configure(bg='#ED1B76')
-#         self.overrideredirect(1) #for hiding titlebar
-
-#         # Add any widgets to the splash screen if needed
-#         label = ttk.Label(self, text="Loading...")
-#         label.pack(pady=50)
-
-#         # Call a method to perform initialization tasks
-#         self.initialize()
-
-#     def initialize(self):
-#         # Perform any necessary initialization tasks here
-#         self.update_idletasks()
-#         self.after(9000, self.destroy)  
-
-
-#w.destroy()
 
 if __name__ == "__main__":
     root = Root()

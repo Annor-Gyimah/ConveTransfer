@@ -8,7 +8,7 @@ import json
 import types
 import subprocess
 from PIL import Image, ImageTk
-from urllib.parse import urljoin
+import webbrowser
 
 import encodings
 import codecs
@@ -180,12 +180,17 @@ def Phonelink(self):
     else:
         ipadd = wifi
     self.server_url = f"http://{ipadd}:{PORT}/"
+    def call_link(event):
+        webbrowser.open_new_tab(self.server_url)
     # oo1 = translate_notification("Or Alternatively, open your web browser on your phone.")
     # oo2 = translate_notification("Then you type in this address")
     self.other_steps_label = ttk.Label(text_frame, text=translate_notification(f"Or Alternatively, open your web browser on your phone."))
     self.other_steps_label.pack(pady=5)
-    self.oo2 = ttk.Label(text_frame, text=translate_notification(f"Then you type in this address {self.server_url}"))
+    self.oo2 = ttk.Label(text_frame, text=translate_notification(f"Then you type in this address"))
     self.oo2.pack()
+    self.urll = ttk.Label(text_frame, text=f'{self.server_url}', cursor='hand2', foreground='green')
+    self.urll.pack()
+    self.urll.bind('<Button-1>', call_link)
     
 
     step5_frame = ttk.Frame(text_frame)

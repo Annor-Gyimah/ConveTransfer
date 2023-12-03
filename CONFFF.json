@@ -944,6 +944,10 @@
   {
    "optionDest": "datas",
    "value": "C:/Users/DELL/AppData/Local/Programs/Python/Python310/Lib/tkinter;tkinter/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/settings.py;."
   }
  ],
  "nonPyinstallerOptions": {

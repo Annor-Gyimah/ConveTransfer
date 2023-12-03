@@ -24,6 +24,7 @@ import get_ip
 from progresswin import ProgressWindow
 from about import DisplayAboutMe
 from how_to import DisplayHowTo
+from settings import SomeSettings
 import json
 from tkinter import font
 from functools import cache
@@ -46,7 +47,6 @@ from PIL import Image, ImageTk
 from get_ip import wifi
 try:
     sys.path.append("C:/Users/DELL/Desktop/socketra/Lib/site-packages/qrcode")
-    sys.path.append("C:/Users/DELL/Desktop/socketra/Lib/site-packages/schedule")
     import qrcode
     
 except ModuleNotFoundError:

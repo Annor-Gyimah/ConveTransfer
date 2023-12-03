@@ -103,7 +103,10 @@
     "Tip 5: There a several ways to transfer files. Try the main 'Send' button, the 'Drag 'n' Drop' tab or via the 'Profile' tab.":"Tip 5: There a several ways to transfer files. Try the main 'Send' button, the 'Drag 'n' Drop' tab or via the 'Profile' tab.",
     "Tip 6: A receiver can send files via the 'Profile' tab without having to type in the sender's ip address in the 'IP' field.":"Tip 6: A receiver can send files via the 'Profile' tab without having to type in the sender's ip address in the 'IP' field.",
     "Tip 7: To change language, go to the 'Help' menu, click on 'Languages' and select the language of your choice.":"Tip 7: To change language, go to the 'Help' menu, click on 'Languages' and select the language of your choice.",
-    "Tip of the Day":"Tip of the Day"
+    "Tip of the Day":"Tip of the Day",
+    "Settings": "Settings",
+    "Startup Settings": "Startup Settings",
+    "Show tips": "Show tips"
 
   },
   "es": {
@@ -219,7 +222,10 @@
     "Tip 4: If sending a file or receiving a file seems not to work upon all conditions satisfied, go to your task manager, quit the 'ConveTransfer' App and launch it again.": "Consejo 4: Si enviar o recibir un archivo parece no funcionar a pesar de cumplir con todas las condiciones, ve a tu administrador de tareas, cierra la aplicación 'ConveTransfer' y vuelve a iniciarla.",
     "Tip 5: There are several ways to transfer files. Try the main 'Send' button, the 'Drag 'n' Drop' tab or via the 'Profile' tab.": "Consejo 5: Hay varias formas de transferir archivos. Prueba el botón principal 'Enviar', la pestaña 'Arrastrar y soltar' o a través de la pestaña 'Perfil'.",
     "Tip 6: A receiver can send files via the 'Profile' tab without having to type in the sender's IP address in the 'IP' field.": "Consejo 6: Un receptor puede enviar archivos a través de la pestaña 'Perfil' sin tener que escribir la dirección IP del remitente en el campo 'IP'.",
-    "Tip 7: To change language, go to the 'Help' menu, click on 'Languages' and select the language of your choice.": "Consejo 7: Para cambiar el idioma, ve al menú 'Ayuda', haz clic en 'Idiomas' y selecciona el idioma de tu elección."
+    "Tip 7: To change language, go to the 'Help' menu, click on 'Languages' and select the language of your choice.": "Consejo 7: Para cambiar el idioma, ve al menú 'Ayuda', haz clic en 'Idiomas' y selecciona el idioma de tu elección.",
+    "Settings": "Ajustes",
+    "Startup Settings": "Configuración de inicio",
+    "Show tips": "Mostrar recomendaciones"
   },
   "ak": {
     "IP": "IP",
@@ -333,7 +339,10 @@
     "Tip 5: There a several ways to transfer files. Try the main 'Send' button, the 'Drag 'n' Drop' tab or via the 'Profile' tab.":"Tip 5: Akwan pii wɔ hɔ a wobɛfa so asende. ɛbi te sɛ 'Send' button titiriw, 'Drage 'nɛ' Drope' tab no anaasɛ ɛnam 'Ho asem' tab no so.",
     "Tip 6: A receiver can send files via the 'Profile' tab without having to type in the sender's ip address in the 'IP' field.":"Tip 6: Obi a ɔreceive no betumi afa 'Ho asem' tab no so de file asende a enhia sɛ ɔtype nea ɔde kɔmaa no ip addresse wɔ 'IP' bea no mu.",
     "Tip 7: To change language, go to the 'Help' menu, click on 'Languages' and select the language of your choice.": "Tip 7: Sɛ wopɛ sɛ wosesa kasa a, kɔ 'Mmoa', na clike 'Kasa' so na selete kasa a wopɛ.",
-    "Tip of the Day": "Tip a Ɛwɔ Da no Mu"
+    "Tip of the Day": "Tip a Ɛwɔ Da no Mu",
+    "Settings": "Nsiesiei",
+    "Startup Settings": "Ahyɛ aseɛ Nsiesiei",
+    "Show tips": "Kyerɛ afotu ahorow"
   },
   "fr": {
     "IP": "IP",
@@ -448,7 +457,10 @@
     "Tip 5: There are several ways to transfer files. Try the main 'Send' button, the 'Drag 'n' Drop' tab or via the 'Profile' tab.": "Conseil 5 : Il existe plusieurs façons de transférer des fichiers. Essayez le bouton principal 'Envoyer', l'onglet 'Glisser-déposer' ou via l'onglet 'Profil'.",
     "Tip 6: A receiver can send files via the 'Profile' tab without having to type in the sender's IP address in the 'IP' field.": "Conseil 6 : Un destinataire peut envoyer des fichiers via l'onglet 'Profil' sans avoir à taper l'adresse IP de l'expéditeur dans le champ 'IP'.",
     "Tip 7: To change language, go to the 'Help' menu, click on 'Languages' and select the language of your choice.": "Conseil 7 : Pour changer la langue, allez dans le menu 'Aide', cliquez sur 'Langues' et sélectionnez la langue de votre choix.",
-    "Tip of the Day": "Conseil du jour"
+    "Tip of the Day": "Conseil du jour",
+    "Settings": "Paramètres",
+    "Startup Settings": "Paramètres de démarrage",
+    "Show tips": "Montre des trucs"
     
   },
   "ja": {
@@ -564,7 +576,10 @@
     "Tip 5: There are several ways to transfer files. Try the main 'Send' button, the 'Drag 'n' Drop' tab or via the 'Profile' tab.": "ヒント5：ファイルを転送する方法はいくつかあります。メインの「送信」ボタン、 'ドラッグ' n 'ドロップ'タブ、または 'プロファイル'タブを試してみてください。",
     "Tip 6: A receiver can send files via the 'Profile' tab without having to type in the sender's IP address in the 'IP' field.": "ヒント6：受信者は、「プロファイル」タブを使用して、送信者のIPアドレスを 'IP'フィールドに入力せずにファイルを送信できます。",
     "Tip 7: To change language, go to the 'Help' menu, click on 'Languages' and select the language of your choice.": "ヒント7：言語を変更するには、「ヘルプ」メニューに移動し、「言語」をクリックし、お好みの言語を選択してください。",
-    "Tip of the Day": "今日のヒント"
+    "Tip of the Day": "今日のヒント",
+    "Settings": "設定",
+    "Startup Settings": "起動設定",
+    "Show tips": "ヒントを表示する"
 
   },
   "ko": {
@@ -680,7 +695,10 @@
     "Tip 5: There are several ways to transfer files. Try the main 'Send' button, the 'Drag 'n' Drop' tab or via the 'Profile' tab.": "팁 5: 파일을 전송하는 여러 가지 방법이 있습니다. 주요 '보내기' 버튼, '드래그 앤 드롭' 탭 또는 '프로필' 탭을 시도하십시오.",
     "Tip 6: A receiver can send files via the 'Profile' tab without having to type in the sender's IP address in the 'IP' field.": "팁 6: 수신자는 '프로필' 탭을 통해 보낸 사람의 IP 주소를 'IP' 필드에 입력하지 않고도 파일을 보낼 수 있습니다.",
     "Tip 7: To change language, go to the 'Help' menu, click on 'Languages' and select the language of your choice.": "팁 7: 언어를 변경하려면 '도움말' 메뉴로 이동하여 '언어'를 클릭하고 원하는 언어를 선택하십시오.",
-    "Tip of the Day": "오늘의 팁"
+    "Tip of the Day": "오늘의 팁",
+    "Settings": "설정",
+    "Startup Settings": "시작 설정",
+    "Show tips": "팁 표시"
   },
   "pt": {
     "IP": "IP",
@@ -795,7 +813,11 @@
     "Tip 5: There are several ways to transfer files. Try the main 'Send' button, the 'Drag 'n' Drop' tab or via the 'Profile' tab.": "Dica 5: Existem várias maneiras de transferir arquivos. Experimente o botão principal 'Enviar', a guia 'Arrastar e Soltar' ou através da guia 'Perfil'.",
     "Tip 6: A receiver can send files via the 'Profile' tab without having to type in the sender's IP address in the 'IP' field.": "Dica 6: Um receptor pode enviar arquivos através da guia 'Perfil' sem precisar digitar o endereço IP do remetente no campo 'IP'.",
     "Tip 7: To change language, go to the 'Help' menu, click on 'Languages' and select the language of your choice.": "Dica 7: Para mudar o idioma, vá para o menu 'Ajuda', clique em 'Idiomas' e selecione o idioma de sua escolha.",
-    "Tip of the Day": "Dica do Dia"
+    "Tip of the Day": "Dica do Dia",
+    "Settings": "Configurações",
+    "Startup Settings": "Configurações de inicialização",
+    "Show tips": "Mostre as dicas"
+
   },
   "hi": {
     "IP": "आईपी",
@@ -910,6 +932,9 @@
     "Tip 5: There are several ways to transfer files. Try the main 'Send' button, the 'Drag 'n' Drop' tab or via the 'Profile' tab.": "टिप 5: फ़ाइलें स्थानांतरित करने के लिए कई तरीके हैं। मुख्य 'भेजें' बटन, 'ड्रैग एन ड्रॉप' टैब या 'प्रोफ़ाइल' टैब का प्रयास करें।",
     "Tip 6: A receiver can send files via the 'Profile' tab without having to type in the sender's IP address in the 'IP' field.": "टिप 6: प्राप्तकर्ता 'प्रोफ़ाइल' टैब के माध्यम से फ़ाइलें भेज सकता है बिना इसे 'IP' क्षेत्र में प्रेषक के IP पते टाइप करने की आवश्यकता के बिना।",
     "Tip 7: To change language, go to the 'Help' menu, click on 'Languages' and select the language of your choice.": "टिप 7: भाषा बदलने के लिए, 'हेल्प' मेनू पर जाएं, 'भाषाएँ' पर क्लिक करें और अपनी पसंद की भाषा का चयन करें।",
-    "Tip of the Day": "आज की सुझाव"
+    "Tip of the Day": "आज की सुझाव",
+    "Settings": "समायोजन",
+    "Startup Settings": "स्टार्टअप सेटिंग्स",
+    "Show tips": "सुझाव दिखाएं"
   }
 }
