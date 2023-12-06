@@ -9,8 +9,6 @@ import threading
 from metadata import __AppName__
 from metadata import __version__
 from resourcepath import resource_path, resource_path2
-import shutil
-
 
 
 class UpdateManager(tk.Toplevel):
@@ -97,7 +95,7 @@ class UpdateManager(tk.Toplevel):
         #                                    
         # self.progressbar.place(relx=0.2, rely=0.5, anchor=tk.CENTER)
         self.button1 = ttk.Button(self, text='Wait!',width=9, state=ttk.DISABLED, command=install_update)
-        self.button1.place(x=-123, relx=1.0, y=-46, rely=1.0)
+        self.button1.place(x=-119, relx=1.0, y=-46, rely=1.0)
 
         self.t1 = threading.Thread(target=start_update_manager)
         self.t1.start()

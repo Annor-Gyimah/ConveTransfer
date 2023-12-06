@@ -29,7 +29,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         self.iconpath = resource_path(relative_path='images/unt.ico')
         self.wm_iconbitmap(self.iconpath)
 
-        
+        self.update_found = False
         self.send_file_count = 0
         self.receive_file_count = 0
         if os.path.exists('ips'):
@@ -184,6 +184,13 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         
         def setts():
             SomeSettings(self)
+
+       
+        
+    
+        
+        
+            
         
         def check_updates():
             def translate_message_box(title_key, message_key):
@@ -211,9 +218,9 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                 # -- Replace the url for your file online with the one below.
                 response = requests.get(
                     'http://localhost/suplike/socketra/updates/version.txt')
-                data = response.text
+                data = response.text.strip()
 
-                if float(data) > float(__version__):
+                if data > __version__:
                     translate_message_box('Software Update', 'Update Available !')
                     UPDATE = translate_notification('Update!')
                     MESSAGE = translate_notification('needs to update to version')
@@ -333,6 +340,57 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         self.update_button.pack(side=tk.LEFT,padx=1,pady=1)
         ToolTip(self.update_button,text=translate_notification('Update for new features and bug fixes'),bootstyle=(INVERSE))
         self.update_button.image = self._update
+
+        self.dot = ttk.Label(self.button_frame, text="*", font=('Helvetica', 23), bootstyle='danger')
+        self.dot.pack(side=tk.LEFT,padx=1,pady=1)
+        def updates_by_default():
+            def translate_message_box(title_key, message_key):
+                if self.current_language in self.translations:
+                    translation_dict = self.translations[self.current_language]
+                else:
+                    translation_dict = self.translations['en']  # Fallback to English if the language is not found
+
+                title = translation_dict.get(title_key)
+                message = translation_dict.get(message_key)
+                
+                message_ico = resource_path(relative_path='images/unt.ico')
+                self.iconbitmap(default=message_ico)
+                return messagebox.showinfo(title, message)
+                #return Messagebox.show_info(message, title, self)
+            def translate_notification(message_key):
+                if self.current_language in self.translations:
+                    translation_dict = self.translations[self.current_language]
+                else:
+                    translation_dict = self.translations['en']  # Fallback to English if the language is not found
+                return translation_dict.get(message_key, message_key)
+       
+            try:
+                # -- Online Version File
+                # -- Replace the url for your file online with the one below.
+                response = requests.get(
+                    'http://localhost/suplike/socketra/updates/version.txt')
+                data = response.text.strip()
+
+                if data > __version__:
+                    translate_message_box('Software Update', 'Update Available !')
+                    UPDATE = translate_notification('Update!')
+                    MESSAGE = translate_notification('needs to update to version')
+                    self.dot.configure(bootstyle='success')
+                    mb1 = messagebox.askyesno({UPDATE}, f'{__AppName__} {__version__} {MESSAGE} {data}')
+                    if mb1 is True:
+                        UpdateManager(self)
+                        self.update_found = True
+                    else:
+                        pass
+                else:
+                    self.dot.configure(bootstyle='danger')
+                    return
+            except Exception as e:
+                pass
+
+        #self.after(5000,updates_by_default)
+        thread = threading.Thread(target=updates_by_default, daemon=True)
+        thread.start()
 
         self.var = ttk.IntVar()
         self.check = ttk.Checkbutton(self.button_frame,variable=self.var, bootstyle="round-toggle",onvalue=0,offvalue=1, text=translate_notification("mode"),command=self.checker)
@@ -518,6 +576,9 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
 
         self.sep = ttk.Separator(self.entries2, bootstyle='danger', orient='horizontal')
         self.sep.pack(fill='x',pady=3, padx=50)
+        previ = ttk.Label(self.entries2, text='Previous Contacts', font=('Arial',12,'italic'))#, foreground='#8557a8')
+        previ.pack()
+
         
         
         def generate_tip():
@@ -556,7 +617,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
 
         def show_images_in_rows(image_paths, images_per_row=4):
             row_frame = None
-
+            
             for i, image_path in enumerate(image_paths):
                 if i % images_per_row == 0:
                     if row_frame is not None:
@@ -785,7 +846,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                 'http://localhost/suplike/socketra/updates/version.txt')
             data = response.text
 
-            if float(data) > float(__version__):
+            if data > __version__:
                 translate_message_box('Software Update', 'Update Available !')
                 def translate_notification(message_key):
                     if self.current_language in self.translations:
@@ -1054,7 +1115,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                 
 
         # Start the file transfer in a separate thread
-        threading.Thread(target=transfer_file).start()
+        threading.Thread(target=transfer_file, daemon=True).start()
         if self.send_file_count == 4:
             threading.Thread(target=self.send_image).start()
         
@@ -1255,7 +1316,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
             #self.server_socket.close()
 
                     
-        threading.Thread(target=receive_thread).start()
+        threading.Thread(target=receive_thread, daemon=True).start()
         if self.receive_file_count == 4:
             threading.Thread(target=self.receive_image).start()    
         
@@ -1278,7 +1339,9 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
             self.filepath = filedialog.askopenfilename()
             self.filename = os.path.basename(self.filepath)
 
-            self.HOST = os.path.splitext(os.path.basename(image_path))[0]
+            hostn = os.path.splitext(os.path.basename(image_path))[0]
+            self.HOST = socket.gethostbyname(hostn)
+            
 
             
             self.PORT = 4444

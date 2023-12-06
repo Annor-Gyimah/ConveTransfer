@@ -293,3 +293,24 @@ if __name__ == '__main__':
     app = ttk.Window("File Search Engine", "journal")
     FileSearchEngine(app)
     app.mainloop()
+
+
+
+# import socket
+
+# def get_ip_from_hostname(hostname):
+#     try:
+#         ip_address = socket.gethostbyname(hostname)
+#         return ip_address
+#     except socket.error as e:
+#         print(f"Error resolving hostname: {e}")
+#         return None
+
+# # Usage
+# device_name = "JOHN-PC"  # Replace with the device name you want to lookup
+# device_ip = get_ip_from_hostname(device_name)
+
+# if device_ip:
+#     print(f"IP Address of {device_name}: {device_ip}")
+# else:
+#     print("Device not found or unable to resolve hostname.")
