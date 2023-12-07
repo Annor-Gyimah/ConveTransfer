@@ -25,6 +25,7 @@ from progresswin import ProgressWindow
 from about import DisplayAboutMe
 from how_to import DisplayHowTo
 from settings import SomeSettings
+from changelog import ChangelogWindow
 import json
 from tkinter import font
 from functools import cache

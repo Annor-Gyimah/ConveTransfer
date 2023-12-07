@@ -23,6 +23,7 @@ class DisplayHowTo(ttk.Toplevel):
         self.geometry('{0}x{1}+{2}+{3}'.format(w, h, int(x), int(y)))
         self.icon = resource_path('images/unt.ico')
         self.iconbitmap(self.icon)
+        #self.bind("<Configure>", self.on_resize)
 
        
         # self.minsize(width=w,height=h)
@@ -141,5 +142,8 @@ class DisplayHowTo(ttk.Toplevel):
         self.note.add(self.tab1,text='Receive')
         self.note.pack(fill=tk.BOTH, expand=1)
         
-    
+    # def on_resize(self,event):
+    #     width = self.winfo_width()
+    #     height = self.winfo_height()
+    #     print(f"Window size for how to is {width} x {height}")
 

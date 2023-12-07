@@ -10,7 +10,7 @@ from tkinter import *
 import json
 class SomeSettings(ttk.Toplevel):
     def __init__(self, parent):
-        super().__init__(self, parent)
+        ttk.Toplevel.__init__(self, parent)
         self.transient(parent)
         self.result = None
         self.grab_set()

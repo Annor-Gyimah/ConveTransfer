@@ -184,13 +184,66 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         
         def setts():
             SomeSettings(self)
+        
+        def seechangelog():
+            ChangelogWindow(self)
+        
+        def updates_by_default():
+            def translate_message_box(title_key, message_key):
+                if self.current_language in self.translations:
+                    translation_dict = self.translations[self.current_language]
+                else:
+                    translation_dict = self.translations['en']  # Fallback to English if the language is not found
 
+                title = translation_dict.get(title_key)
+                message = translation_dict.get(message_key)
+                
+                message_ico = resource_path(relative_path='images/unt.ico')
+                self.iconbitmap(default=message_ico)
+                return messagebox.showinfo(title, message)
+                #return Messagebox.show_info(message, title, self)
+            # def translate_notification(message_key):
+            #     if self.current_language in self.translations:
+            #         translation_dict = self.translations[self.current_language]
+            #     else:
+            #         translation_dict = self.translations['en']  # Fallback to English if the language is not found
+            #     return translation_dict.get(message_key, message_key)
        
-        
-    
-        
-        
-            
+            try:
+                # -- Online Version File
+                # -- Replace the url for your file online with the one below.
+                response = requests.get(
+                    'http://localhost/suplike/socketra/updates/version.txt')
+                data = response.text.strip()
+
+                if data > __version__:
+                    translate_message_box('Software Update', 'Update Available !')
+                    def translate_notification(message_key):
+                        if self.current_language in self.translations:
+                            translation_dict = self.translations[self.current_language]
+                        else:
+                            translation_dict = self.translations['en']  # Fallback to English if the language is not found
+                        return translation_dict.get(message_key, message_key)
+                    UPDATE = translate_notification('Update!')
+                    MESSAGE = translate_notification('needs to update to version')
+
+                    mb2 = messagebox.askyesno(f'{UPDATE}', f'{__AppName__} {__version__} {MESSAGE} {data}')
+                    if mb2 is True:
+                        
+                        UpdateManager(self)
+                        self.update_found = True
+                    else:
+                        pass
+                else:
+                    
+                    return
+            except Exception as e:
+                pass
+
+        #self.after(5000,updates_by_default)
+        thread = threading.Thread(target=updates_by_default, daemon=True)
+        thread.start()
+
         
         def check_updates():
             def translate_message_box(title_key, message_key):
@@ -228,7 +281,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
                     if mb1 is True:
                         # -- Replace the url for your file online with the one below.
                         webbrowser.open_new_tab('http://localhost/suplike/socketra/'
-                    'updates/ConveTransfer.msi?raw=true')
+                    'updates/ConveTransfer.exe?raw=true')
                         self.destroy()
                     else:
                         pass
@@ -255,7 +308,7 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         # #self.iconpath = Image.open(resource_path('icon.png'))
         
         # #self.wm_iconwindow(self.iconpath)
-        # #self.bind("<Configure>", self.on_resize)
+        # self.bind("<Configure>", self.on_resize)
 
         
         def translate_notification(text):
@@ -281,6 +334,8 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         self.helpmenu.add_command(label=translate_notification('About'),command=about_me)
         self.helpmenu.add_command(label=translate_notification('Check for Updates'), command=check_updates)
         self.helpmenu.add_command(label=translate_notification('How To'),command=howto)
+        
+
 
         self.howto_submenu = ttk.Menu(self.helpmenu, tearoff=0)
         
@@ -297,6 +352,8 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         
         #self.helpmenu.add_command(label='How To',command=howto)
         self.helpmenu.add_cascade(label=translate_notification('Language'), menu=self.howto_submenu)
+        self.helpmenu.add_command(label=translate_notification('See Changelog'), command=seechangelog)
+
         self.menubar.add_cascade(label=translate_notification('Help'),menu=self.helpmenu)
         self.menubar.add_cascade(label=translate_notification('Settings'),command=setts)
         
@@ -341,57 +398,9 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
         ToolTip(self.update_button,text=translate_notification('Update for new features and bug fixes'),bootstyle=(INVERSE))
         self.update_button.image = self._update
 
-        self.dot = ttk.Label(self.button_frame, text="*", font=('Helvetica', 23), bootstyle='danger')
-        self.dot.pack(side=tk.LEFT,padx=1,pady=1)
-        def updates_by_default():
-            def translate_message_box(title_key, message_key):
-                if self.current_language in self.translations:
-                    translation_dict = self.translations[self.current_language]
-                else:
-                    translation_dict = self.translations['en']  # Fallback to English if the language is not found
-
-                title = translation_dict.get(title_key)
-                message = translation_dict.get(message_key)
-                
-                message_ico = resource_path(relative_path='images/unt.ico')
-                self.iconbitmap(default=message_ico)
-                return messagebox.showinfo(title, message)
-                #return Messagebox.show_info(message, title, self)
-            def translate_notification(message_key):
-                if self.current_language in self.translations:
-                    translation_dict = self.translations[self.current_language]
-                else:
-                    translation_dict = self.translations['en']  # Fallback to English if the language is not found
-                return translation_dict.get(message_key, message_key)
-       
-            try:
-                # -- Online Version File
-                # -- Replace the url for your file online with the one below.
-                response = requests.get(
-                    'http://localhost/suplike/socketra/updates/version.txt')
-                data = response.text.strip()
-
-                if data > __version__:
-                    translate_message_box('Software Update', 'Update Available !')
-                    UPDATE = translate_notification('Update!')
-                    MESSAGE = translate_notification('needs to update to version')
-                    self.dot.configure(bootstyle='success')
-                    mb1 = messagebox.askyesno({UPDATE}, f'{__AppName__} {__version__} {MESSAGE} {data}')
-                    if mb1 is True:
-                        UpdateManager(self)
-                        self.update_found = True
-                    else:
-                        pass
-                else:
-                    self.dot.configure(bootstyle='danger')
-                    return
-            except Exception as e:
-                pass
-
-        #self.after(5000,updates_by_default)
-        thread = threading.Thread(target=updates_by_default, daemon=True)
-        thread.start()
-
+        # self.dot = ttk.Label(self.button_frame, text="*", font=('Helvetica', 23), bootstyle='danger')
+        # self.dot.pack(side=tk.LEFT,padx=1,pady=1)
+        
         self.var = ttk.IntVar()
         self.check = ttk.Checkbutton(self.button_frame,variable=self.var, bootstyle="round-toggle",onvalue=0,offvalue=1, text=translate_notification("mode"),command=self.checker)
         self.check.pack(side=tk.RIGHT)
@@ -696,8 +705,8 @@ class Root(ttk.Window, TkinterDnD.DnDWrapper):
     # def on_resize(self,event):
     #     width = self.winfo_width()
     #     height = self.winfo_height()
-    #     print(f"Window size is {width} x {height}")   
-  
+    #     print(f"Main window size is {width} x {height}")
+
     # def toggle_frames(self):
     #     if self.entries.winfo_ismapped():  # Check if the first frame is currently visible
     #         self.entries.pack_forget()  # Hide the first frame
