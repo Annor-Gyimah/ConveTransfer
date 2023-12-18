@@ -112,3 +112,27 @@ def get_sent_received_counts():
     conn.close()
 
     return sent_count, received_count
+
+def get_sent_counts():
+    conn = sqlite3.connect('file_transfer.db')
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT COUNT(*) FROM member WHERE sent != ''")
+    sent_count = cursor.fetchone()[0]
+
+
+    conn.close()
+
+    return sent_count
+
+
+def get_received_counts():
+    conn = sqlite3.connect('file_transfer.db')
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT COUNT(*) FROM member WHERE received != ''")
+    received_count = cursor.fetchone()[0]
+
+    conn.close()
+
+    return received_count

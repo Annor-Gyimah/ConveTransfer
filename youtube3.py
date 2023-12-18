@@ -170,7 +170,26 @@ def youtube_tab(self):
                     f'{m9b}\n'\
                     f'{m9c}\n'\
                     f'{m9d}')
-                
+    
+    def callback_select_all(event):
+        # select text after 50ms
+        self.link_frame.after(50, lambda: event.widget.select_range(0, 'end'))
+
+    def show_context_menu(event, *args):
+        e_widget = event.widget
+        context_menu = ttk.Menu(self.link_frame, tearoff=0)
+        context_menu.add_command(label="Cut")
+        context_menu.add_command(label="Copy")
+        context_menu.add_command(label="Paste")
+        context_menu.add_separator()
+        context_menu.add_command(label="Select all")
+        context_menu.entryconfigure("Cut", command=lambda: e_widget.event_generate("<<Cut>>"))
+        context_menu.entryconfigure("Copy", command=lambda: e_widget.event_generate("<<Copy>>"))
+        context_menu.entryconfigure("Paste", command=lambda: e_widget.event_generate("<<Paste>>"))
+        context_menu.entryconfigure("Select all", command=lambda: e_widget.select_range(0, 'end'))
+        context_menu.tk.call("tk_popup", context_menu, event.x_root, event.y_root)
+    
+    
 
     def searchThread():
         t1 = threading.Thread(target=searchResolution)
@@ -194,16 +213,19 @@ def youtube_tab(self):
     youtubelabel = ttk.Label(self.youtubeframe, image=youtubeico, bootstyle='light')
     youtubelabel.pack()
 
-    link_frame = ttk.Frame(self.youtubeframe)
-    link_frame.pack(padx=10, pady=(10, 0))
+    self.link_frame = ttk.Frame(self.youtubeframe)
+    self.link_frame.pack(padx=10, pady=(10, 0))
 
-    self.Label_link = ttk.Label(link_frame, text=translate_notification("Link:"),font=('calibre', 10, 'normal'))
+    self.Label_link = ttk.Label(self.link_frame, text=translate_notification("Link:"),font=('calibre', 10, 'normal'))
     self.Label_link.pack(side='left', padx=(5,39))
 
     link_var = ttk.StringVar()
     link_var.set("")
-    Entry_link = ttk.Entry(link_frame, width=48, textvariable=link_var, font=('calibre', 10, 'normal'))
+    Entry_link = ttk.Entry(self.link_frame, width=48, textvariable=link_var, font=('calibre', 10, 'normal'))
+    Entry_link.bind("<Button-3><ButtonRelease-3>", show_context_menu)
+    Entry_link.bind("<Control-a>", callback_select_all)
     Entry_link.pack(side='left')
+    
 
     # Create a frame for the Save To label and entry
     save_folder_frame = ttk.Frame(self.youtubeframe)

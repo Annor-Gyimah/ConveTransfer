@@ -948,6 +948,10 @@
   {
    "optionDest": "datas",
    "value": "C:/Users/DELL/Desktop/ConveTransfer5/settings.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/DELL/Desktop/ConveTransfer5/changelog.py;."
   }
  ],
  "nonPyinstallerOptions": {

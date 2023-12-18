@@ -110,6 +110,12 @@ def Phonelink(self):
             
             # Use subprocess to start the server in a new console window
             subprocess.Popen(["start", "cmd", "/k", python_path, f"{add}"], shell=True)
+            ipadd = wifi
+            if ipadd != "":
+                self.server_url = f"http://{ipadd}:{PORT}/"
+                self.urll.configure(text=f'{self.server_url}')
+            else:
+                self.urll.configure(text=f"http://127.0.0.1:{PORT}/")
         except Exception as e:
             print(f"Error starting server: {e}")
 
@@ -147,6 +153,8 @@ def Phonelink(self):
     ttk.Label(step2_frame, image=step2_image).pack(side='left', padx=(4,30))
     self.step2_label = ttk.Label(step2_frame, text=translate_notification("Click on the 'Turn On' to start sharing."))
     self.step2_label.pack(pady=5)
+    # self.step2a_label = ttk.Label(step2_frame, text=translate_notification("A command prompt will pop up and firewall on windows will prompt you with a pop-up asking you to tick both the private and the public network on the pop-up."))
+    # self.step2a_label.pack(pady=5)
     
 
 
@@ -157,7 +165,7 @@ def Phonelink(self):
     step3_image = ImageTk.PhotoImage(step3_image)
     self.step3_image = step3_image
     ttk.Label(step3_frame, image=step3_image).pack(side='left', padx=(4,30))
-    self.step3_label = ttk.Label(step3_frame, text=translate_notification("Open up your phone's camera or your qrcode scanner to scan the qrcode."))
+    self.step3_label = ttk.Label(step3_frame, text=translate_notification("Open up your phone's camera to scan the qrcode."))
     self.step3_label.pack(pady=5)
 
     step4_frame = ttk.Frame(text_frame)
@@ -191,6 +199,8 @@ def Phonelink(self):
     self.urll = ttk.Label(text_frame, text=f'{self.server_url}', cursor='hand2', foreground='green')
     self.urll.pack()
     self.urll.bind('<Button-1>', call_link)
+    self.oo3 = ttk.Label(text_frame, text=translate_notification(f"Stop and reload the webpage if it doesnt show in 5 seconds."))
+    self.oo3.pack()
     
 
     step5_frame = ttk.Frame(text_frame)
@@ -222,7 +232,6 @@ def Phonelink(self):
     ttk.Label(step7_frame, image=step7_image).pack(side='left', padx=(4,30))
     self.step7_label = ttk.Label(step7_frame, text=translate_notification("Click on Upload."))
     self.step7_label.pack(pady=5)
-
 
 
 
