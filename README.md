@@ -82,7 +82,7 @@ I believe that we have come of technological age where developers must find solu
 Note that the ConveTransfer is not to desist the use of pendrives or other media but it has come to aid the transferring of files in a much convenient way where convenient here means that you dont posses a pendrive to transfer files at the moment so what do you do then? Conveniently, you find ways to achieve this file transfer and you can do it without the help of ConveTransfer.
 
 Author, <br>
-Mahmoud Elshahat, <br>
-2019-2020
+Emmanuel Gyimah Annor, <br>
+2023
 
 ---
