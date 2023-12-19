@@ -1,4 +1,4 @@
-<img width="532" alt="light" src="https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/a49cf24d-a23f-4e4b-8923-f796f5017a49">
+
 ConveTransfer is an desktop application that revolutionizes file transfer between PCs, eliminating the need for physical storage devices like USB pendrives. 
 The app's intuitive design, encapsulated in its name, empowers users to effortlessly send and receive 
 files with anyone who has the software installed, streamlining the file-sharing process without 
