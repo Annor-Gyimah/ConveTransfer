@@ -28,38 +28,6 @@ Currently, we support only Windows OS, future updates will include other Operati
 Latest Windows portable version available [here](https://annor-gyimah.github.io/). <br>
 Download the ConveMatch to search for the main resources to download.
 
----
-
-# Dependencies:
-below are the requirements to run from source:
-- Python 3.6+: tested with python 3.6 on windows, and 3.7, 3.8 on linux
-- [ffmpeg](https://www.ffmpeg.org/) : for merging audio with youtube DASH videos "it will be installed automatically on windows"
-
-Required python packages: 
-- [pycurl](http://pycurl.io/docs/latest/index.html): is a Python interface to libcurl / curl as our download engine,
-- [PySimpleGUI](https://github.com/PySimpleGUI/PySimpleGUI): a beautiful gui builder, 
-- [youtube_dl](https://github.com/ytdl-org/youtube-dl): famous youtube downloader, limited use for meta information extraction only but videos are downloaded using pycurl 
-- certifi: required by 'pycurl' for validating the trustworthiness of SSL certificates,
-- pyperclip: A cross-platform clipboard module for monitoring url copied to clipboard, requires "xclip or xsel to be available on linux"
-- plyer: for systray area notification.
-
-
-** please read notes below
-
-
-pyIDM application will do its best to install missing packages automatically once you run it. or you can install required packages manually using:
-
-```
-pip install -r requirements.txt
-```
-or
-```
-python -m pip install --user --upgrade certifi PySimpleGUI pyperclip plyer youtube_dl pycurl pillow
-```
-
-
-
----
 
 **more snapshots**
 
