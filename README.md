@@ -5,7 +5,7 @@ files with anyone who has the software installed, streamlining the file-sharing 
 reliance on external media. Transferring files at an amazing speed. <br>
 Developed in Python, based on "ttkbootstrap" and "sockets"
 
-![main animation](https://user-images.githubusercontent.com/58998813/77242050-2d5d1c80-6c03-11ea-8151-b85a897ff9fb.gif)
+![light](https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/24bba87a-82d2-4e5f-8b66-b50a5e3cb252)
 
 ---
 **Features**:
@@ -31,14 +31,13 @@ Download the ConveMatch to search for the main resources to download.
 
 **more snapshots**
 
-![Main_tab](https://user-images.githubusercontent.com/58998813/77241027-b40afd00-6bf5-11ea-8854-c181d1f9c957.PNG)
-![Main_tab2](https://user-images.githubusercontent.com/58998813/77240732-e155ac00-6bf1-11ea-8cd0-edc5facaa46a.PNG)
-![d_window](https://user-images.githubusercontent.com/58998813/77240959-ec5e0b80-6bf4-11ea-819e-83bd7bd13249.PNG)
-![downloads_tab](https://user-images.githubusercontent.com/58998813/77240740-f16d8b80-6bf1-11ea-8579-1705dd750bfd.PNG)
-![playlist_window](https://user-images.githubusercontent.com/58998813/77242155-12d77300-6c04-11ea-9e57-e781e67aaa3b.PNG)
-![setting_tab1](https://user-images.githubusercontent.com/58998813/77240742-f9c5c680-6bf1-11ea-860a-a434dcba599e.PNG)
-![setting_tab2](https://user-images.githubusercontent.com/58998813/77240744-fdf1e400-6bf1-11ea-92c6-bf2297524a80.PNG)
-![Multi_window](https://user-images.githubusercontent.com/37757246/71418548-a2a46a00-2673-11ea-8101-c95d29b6a0e4.png)
+![dark_tab](https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/91f479f4-dead-40d4-827a-d87783aa2d4e)
+![light](https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/24bba87a-82d2-4e5f-8b66-b50a5e3cb252)
+![youtube](https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/39b4d2bf-ac89-42ca-867f-136386955e3e)
+![profile](https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/fde2d259-f1dc-48c4-a908-130dde15f790)
+![phonelink](https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/bdd9de5d-635c-4812-a58e-8a383bd70e1b)
+![dragandrop](https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/c9c4c474-c92d-49bb-a36d-86f9a66866c3)
+
 
 ---
 # Why use the ConveTransfer app?:
