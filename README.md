@@ -5,7 +5,7 @@ files with anyone who has the software installed, streamlining the file-sharing 
 reliance on external media. Transferring files at an amazing speed. <br>
 Developed in Python, based on "ttkbootstrap" and "sockets"
 
-![main animation](https://user-images.githubusercontent.com/58998813/77242050-2d5d1c80-6c03-11ea-8151-b85a897ff9fb.gif)
+![light](https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/24bba87a-82d2-4e5f-8b66-b50a5e3cb252)
 
 ---
 **Features**:
@@ -32,12 +32,11 @@ Download the ConveMatch to search for the main resources to download.
 **more snapshots**
 
 ![dark_tab](https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/91f479f4-dead-40d4-827a-d87783aa2d4e)
-<img width="532" alt="light" src="https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/24bba87a-82d2-4e5f-8b66-b50a5e3cb252">
-<img width="529" alt="youtube" src="https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/39b4d2bf-ac89-42ca-867f-136386955e3e">
-<img width="529" alt="profile" src="https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/fde2d259-f1dc-48c4-a908-130dde15f790">
-<img width="531" alt="phonelink" src="https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/bdd9de5d-635c-4812-a58e-8a383bd70e1b">
-<img width="531" alt="dragndrop" src="https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/c9c4c474-c92d-49bb-a36d-86f9a66866c3">
-
+![light](https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/24bba87a-82d2-4e5f-8b66-b50a5e3cb252)
+![youtube](https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/39b4d2bf-ac89-42ca-867f-136386955e3e)
+![profile](https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/fde2d259-f1dc-48c4-a908-130dde15f790)
+![phonelink](https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/bdd9de5d-635c-4812-a58e-8a383bd70e1b)
+![dragandrop](https://github.com/Annor-Gyimah/ConveTransfer/assets/68398911/c9c4c474-c92d-49bb-a36d-86f9a66866c3)
 
 
 ---
