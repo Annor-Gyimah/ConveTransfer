@@ -1,0 +1,6 @@
+ttkbootstrap
+pywifi
+iface
+comtypes
+pytube
+qrcode
