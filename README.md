@@ -28,6 +28,12 @@ Currently, we support only Windows OS, future updates will include other Operati
 Latest Windows portable version available [here](https://annor-gyimah.github.io/). <br>
 Download the ConveMatch to search for the main resources to download.
 
+2. **Run Locally.py**:<br>
+* Assume you have python installed, clone this repo  or download it as .zip.<br>
+* Navigate to the downloaded folder.<br>
+* Open CMD in the downloaded zip or the cloned repo and type `pip install -r requirements.py` to install the necessary packages.<br>
+* Then do `python ConveTransfer.py` in the CMD. <br> 
+
 
 **more snapshots**
 
@@ -47,6 +53,9 @@ I believe that we have come of technological age where developers must find solu
 
 # Disclaimer?:
 Note that the ConveTransfer is not to desist the use of pendrives or other media but it has come to aid the transferring of files in a much convenient way where convenient here means that you dont posses a pendrive to transfer files at the moment so what do you do then? Conveniently, you find ways to achieve this file transfer and you can do it without the help of ConveTransfer.
+
+# Contributions
+Any contributions or changes are highly welcomed<br>Folk the repo and perform the changes you deem necessary then do a pull requests.
 
 Author, <br>
 Emmanuel Gyimah Annor, <br>
