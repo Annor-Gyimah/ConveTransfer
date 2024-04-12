@@ -31,7 +31,7 @@ Download the ConveMatch to search for the main resources to download.
 2. **Run Locally.py**:<br>
 * Assume you have python installed, clone this repo  or download it as .zip.<br>
 * Navigate to the downloaded folder.<br>
-* Open CMD in the downloaded zip or the cloned repo and type `pip install -r requirements.py` to install the necessary packages.<br>
+* Open CMD in the downloaded zip or the cloned repo and type `pip install -r requirements.txt` to install the necessary packages.<br>
 * Then do `python ConveTransfer.py` in the CMD. <br> 
 
 
